@@ -5,13 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.batman</groupId>
-    <artifactId>batman-upms</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-
-    <modules>
-        <module>batman-upms-rpc-service</module>
-    </modules>
+    <artifactId>batman-common</artifactId>
+    <version>1.0.0</version>
 
 
 </project>
