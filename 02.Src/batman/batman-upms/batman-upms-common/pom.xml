@@ -11,5 +11,11 @@
 
     <artifactId>batman-upms-common</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.batman</groupId>
+            <artifactId>batman-common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>
