@@ -102,7 +102,7 @@ public class MybatisGeneratorUtil {
         String ctime = new SimpleDateFormat("yyyy/m/d").format(new Date());
         String servicePath = basePath + module + "/" + module + "-rpc-api" + "/src/main/java/" +
                 package_name.replaceAll("\\.", "/") + "/rpc/api";
-        String serviceImplPath = basePath + module + "/" + module + "-rpc-service" + "/src/main/java" +
+        String serviceImplPath = basePath + module + "/" + module + "-rpc-service" + "/src/main/java/" +
                 package_name.replaceAll("\\.", "/") + "/rpc/service/impl";
         for (int i = 0; i < tables.size(); i++) {
             String model = StringUtil.lineToHump(ObjectUtils.toString(tables.get(i).get("table_name")));

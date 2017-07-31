@@ -11,5 +11,11 @@
 
     <artifactId>batman.upms.rpc.api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.batman</groupId>
+            <artifactId>batman-upms-dao</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>
