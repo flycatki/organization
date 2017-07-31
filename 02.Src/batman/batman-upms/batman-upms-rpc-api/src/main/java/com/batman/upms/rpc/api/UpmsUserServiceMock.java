@@ -7,7 +7,7 @@ import com.batman.upms.dao.model.UpmsUserExample;
 
 /**
 * 降级实现UpmsUserService接口
-* Created by jiang on 2017/37/31.
+* Created by jiang on 2017/6/31.
 */
 public class UpmsUserServiceMock extends BaseServiceMock<UpmsUserMapper, UpmsUser, UpmsUserExample> implements UpmsUserService {
 

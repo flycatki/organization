@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
 * UpmsUserService实现
-* Created by jiang on 2017/37/31.
+* Created by jiang on 2017/6/31.
 */
 @Service
 @Transactional
@@ -23,7 +23,7 @@ public class UpmsUserServiceImpl extends BaseServiceImpl<UpmsUserMapper, UpmsUse
 
 private static Logger _log = LoggerFactory.getLogger(UpmsUserServiceImpl.class);
 
-@Autowired
-UpmsUserMapper UpmsUserMapper;
+    @Autowired
+    UpmsUserMapper UpmsUserMapper;
 
 }

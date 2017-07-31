@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.batman</groupId>
-            <artifactId>batman-upms-common</artifactId>
+            <artifactId>batman-upms-rpc-api</artifactId>
             <version>0.0.1</version>
         </dependency>
     </dependencies>

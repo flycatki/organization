@@ -1,12 +1,6 @@
-2017-07-28 15:21:14 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :12(main)]  >>>>> batman-upms-rpc-service 正在启动 <<<<<
-2017-07-28 15:21:14 [ INFO ] [ ?.java :?(?)]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2017-07-28 15:21:15 [ INFO ] [ DruidDataSource.java :669(init)]  {dataSource-1} inited
-2017-07-28 15:21:15 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :14(main)]  >>>>> batman-upms-rpc-service 启动完成 <<<<<
-2017-07-28 15:21:15 [ INFO ] [ AbstractConfig$1.java :450(run)]   [DUBBO] Run shutdown hook now., dubbo version: 2.5.3, current host: 127.0.0.1
-2017-07-28 15:21:15 [ INFO ] [ AbstractRegistryFactory.java :63(destroyAll)]   [DUBBO] Close all registries [], dubbo version: 2.5.3, current host: 127.0.0.1
-2017-07-28 17:31:01 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :12(main)]  >>>>> batman-upms-rpc-service 正在启动 <<<<<
-2017-07-28 17:31:01 [ INFO ] [ ?.java :?(?)]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2017-07-28 17:31:02 [ INFO ] [ DruidDataSource.java :669(init)]  {dataSource-1} inited
-2017-07-28 17:31:02 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :14(main)]  >>>>> batman-upms-rpc-service 启动完成 <<<<<
-2017-07-28 17:31:02 [ INFO ] [ AbstractConfig$1.java :450(run)]   [DUBBO] Run shutdown hook now., dubbo version: 2.5.3, current host: 127.0.0.1
-2017-07-28 17:31:02 [ INFO ] [ AbstractRegistryFactory.java :63(destroyAll)]   [DUBBO] Close all registries [], dubbo version: 2.5.3, current host: 127.0.0.1
+2017-07-31 17:08:17 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :12(main)]  >>>>> batman-upms-rpc-service 正在启动 <<<<<
+2017-07-31 17:08:17 [ INFO ] [ ?.java :?(?)]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2017-07-31 17:08:18 [ INFO ] [ DruidDataSource.java :669(init)]  {dataSource-1} inited
+2017-07-31 17:08:18 [ INFO ] [ BatmanUpmsRpcServiceApplication.java :14(main)]  >>>>> batman-upms-rpc-service 启动完成 <<<<<
+2017-07-31 17:08:18 [ INFO ] [ AbstractConfig$1.java :450(run)]   [DUBBO] Run shutdown hook now., dubbo version: 2.5.3, current host: 127.0.0.1
+2017-07-31 17:08:18 [ INFO ] [ AbstractRegistryFactory.java :63(destroyAll)]   [DUBBO] Close all registries [], dubbo version: 2.5.3, current host: 127.0.0.1

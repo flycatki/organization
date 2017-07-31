@@ -6,7 +6,7 @@ import com.batman.upms.dao.model.UpmsUserExample;
 
 /**
 * UpmsUserService接口
-* Created by jiang on 2017/37/31.
+* Created by jiang on 2017/6/31.
 */
 public interface UpmsUserService extends BaseService<UpmsUser, UpmsUserExample> {
 
