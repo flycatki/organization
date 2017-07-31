@@ -42,7 +42,7 @@ public class VelocityUtil {
     public static String getPath(String filePath) {
         String path = "";
         if (StringUtils.isNotBlank(filePath)) {
-            path = filePath.substring(0, filePath.lastIndexOf("/") + 1);
+            path = filePath.substring(0, filePath.lastIndexOf("/"));
         }
         return path;
     }

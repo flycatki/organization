@@ -9,15 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>batman-upms</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>batman-upms-common</module>
-        <module>batman-upms-rpc-service</module>
-        <module>batman-upms-dao</module>
-        <module>batcom-upms-rpc-api</module>
-        <module>batman-upms-rpc-api</module>
-    </modules>
+    <artifactId>batman-admin</artifactId>
 
 
 </project>
