@@ -13,7 +13,7 @@
 
     <dubbo:protocol name="dubbo" port="20881"/>
 
-    <!-- 系统 -->
+    <!-- 用户 -->
     <bean id="upmsUserService" class="com.batman.upms.rpc.service.impl.UpmsUserServiceImpl"/>
     <dubbo:service interface="com.batman.upms.rpc.api.UpmsUserService" ref="upmsUserService" timeout="10000"/>
 </beans>
