@@ -16,4 +16,5 @@
     <!-- 用户 -->
     <bean id="upmsUserService" class="com.batman.upms.rpc.service.impl.UpmsUserServiceImpl"/>
     <dubbo:service interface="com.batman.upms.rpc.api.UpmsUserService" ref="upmsUserService" timeout="10000"/>
+
 </beans>

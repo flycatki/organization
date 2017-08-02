@@ -4,6 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import java.util.Map;
+
 public class SpringContextUtil implements ApplicationContextAware {
 
     private static ApplicationContext context = null;
@@ -33,5 +35,14 @@ public class SpringContextUtil implements ApplicationContextAware {
      */
     public static <T> T getBean(String beanName, Class<T> clazz) {
         return context.getBean(beanName, clazz);
+    }
+
+    public static <T> T getBean(Class<T> clazz) {
+        T t = null;
+        Map<String, T> map = context.getBeansOfType(clazz);
+        for (Map.Entry<String, T> entry : map.entrySet()) {
+            t = entry.getValue();
+        }
+        return t;
     }
 }

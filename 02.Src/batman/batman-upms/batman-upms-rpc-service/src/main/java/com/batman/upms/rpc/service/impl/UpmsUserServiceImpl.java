@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 * UpmsUserService实现
 * Created by jiang on 2017/6/31.
@@ -21,9 +24,16 @@ import org.springframework.transaction.annotation.Transactional;
 @BaseService
 public class UpmsUserServiceImpl extends BaseServiceImpl<UpmsUserMapper, UpmsUser, UpmsUserExample> implements UpmsUserService {
 
-private static Logger _log = LoggerFactory.getLogger(UpmsUserServiceImpl.class);
+    private static Logger _log = LoggerFactory.getLogger(UpmsUserServiceImpl.class);
 
     @Autowired
-    UpmsUserMapper UpmsUserMapper;
+    UpmsUserMapper upmsUserMapper;
 
+    @Override
+    public List<UpmsUser> getAllUsers() {
+        List<UpmsUser> users = new ArrayList<>();
+        UpmsUser user = new UpmsUser();
+        users.add(user);
+        return users;
+    }
 }

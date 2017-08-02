@@ -2,22 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>batman</artifactId>
-        <groupId>com.batman</groupId>
-        <version>0.0.1</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.batman</groupId>
     <artifactId>batman-upms</artifactId>
+    <version>0.0.1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+
     <packaging>pom</packaging>
     <modules>
         <module>batman-upms-common</module>
         <module>batman-upms-rpc-service</module>
         <module>batman-upms-dao</module>
-        <module>batcom-upms-rpc-api</module>
         <module>batman-upms-rpc-api</module>
     </modules>
-
-
 </project>

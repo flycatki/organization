@@ -51,4 +51,23 @@
         <property name="filters" value="stat"/>
     </bean>
 
+    <!-- 为Mybatis创建SqlSessionFactory，同时指定数据源 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="masterDataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath*:com/batman/upms/dao/mapper/*Mapper.xml"/>
+    </bean>
+    <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="**.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="masterDataSource"/>
+    </bean>
+
+    <!-- 启动注解事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
