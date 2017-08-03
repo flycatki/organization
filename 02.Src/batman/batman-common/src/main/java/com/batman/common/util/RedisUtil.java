@@ -63,7 +63,7 @@ public class RedisUtil {
         poolInit();
         Jedis jedis = null;
         try {
-            if (null == jedisPool) {
+            if (null != jedisPool) {
                 jedis = jedisPool.getResource();
                 try {
                     jedis.auth(PASSWORD);

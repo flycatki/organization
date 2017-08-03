@@ -47,7 +47,7 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         }
         sso_server_url.append("/sso/index").append("?").append("appid")
                 .append("=")
-                .append(PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.appId"));
+                .append(PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.appID"));
         //回跳地址
         HttpServletRequest httpServletRequest = WebUtils.toHttp(servletRequest);
         StringBuffer backurl = httpServletRequest.getRequestURL();
