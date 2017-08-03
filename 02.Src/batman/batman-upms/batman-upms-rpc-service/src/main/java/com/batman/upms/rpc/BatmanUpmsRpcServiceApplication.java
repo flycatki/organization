@@ -13,8 +13,5 @@ public class BatmanUpmsRpcServiceApplication {
         _log.info(">>>>> batman-upms-rpc-service 正在启动 <<<<<");
         new ClassPathXmlApplicationContext("classpath:META-INF/spring/*.xml");
         _log.info(">>>>> batman-upms-rpc-service 启动完成 <<<<<");
-
-        UpmsUserMapper upmsUserMapper = SpringContextUtil.getBean(UpmsUserMapper.class);
-        UpmsUserServiceImpl upmsUserService = SpringContextUtil.getBean(UpmsUserServiceImpl.class);
     }
 }
