@@ -3,6 +3,7 @@ package com.batman.common.util;
 import org.apache.ibatis.io.ResolverUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -51,5 +52,27 @@ public class RedisUtil {
         }
     }
 
-    
+    private static synchronized void poolInit() {
+        if (null == jedisPool) {
+            initialPool();
+        }
+    }
+
+    public synchronized static Jedis getJedis() {
+        poolInit();
+        Jedis jedis = null;
+        try {
+            if (null == jedisPool) {
+                jedis = jedisPool.getResource();
+                try {
+                    jedis.auth(PASSWORD);
+                } catch (Exception e) {
+
+                }
+            }
+        } catch (Exception e) {
+            _log.error("Get jedis error : " + e);
+        }
+        return jedis;
+    }
 }
