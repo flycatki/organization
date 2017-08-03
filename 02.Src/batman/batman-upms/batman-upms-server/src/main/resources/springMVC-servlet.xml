@@ -10,7 +10,16 @@
     <!-- 根目录'/'对应页面 -->
     <mvc:view-controller path="/" view-name="/index.jsp"/>
 
-    <!-- Html视图 -->
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 获取登录信息 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/manage/**"/>
+            <bean class="com.batman.upms.server.interceptor.UpmsInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- Jsp视图 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1"/>
         <property name="prefix" value="/WEB-INF/views"/>

@@ -22,5 +22,6 @@
         <module>batman-upms-dao</module>
         <module>batman-upms-rpc-api</module>
         <module>batman-upms-client</module>
+        <module>batman-upms-server</module>
     </modules>
 </project>
