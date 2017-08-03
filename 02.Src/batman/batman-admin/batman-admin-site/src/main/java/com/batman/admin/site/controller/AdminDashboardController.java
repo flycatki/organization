@@ -15,6 +15,6 @@ public class AdminDashboardController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
-        return "";
+        return "/index.html";
     }
 }

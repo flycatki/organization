@@ -12,6 +12,16 @@
         <module>batman-common</module>
         <module>batman-upms</module>
         <module>batman-admin</module>
+        <module>batman-api</module>
+        <module>batman-cms</module>
+        <module>batman-oa</module>
+        <module>batman-pay</module>
+        <module>batman-wechar</module>
+        <module>batman-eshop</module>
+        <module>batman-ucenter</module>
+        <module>batman-oss</module>
+        <module>batman-opms</module>
+        <module>batman-ui</module>
     </modules>
 
 

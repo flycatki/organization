@@ -86,6 +86,7 @@
                 <version>9.2.7.v20150116</version>
                 <configuration>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
