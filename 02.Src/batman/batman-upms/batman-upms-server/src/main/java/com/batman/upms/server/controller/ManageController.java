@@ -1,9 +1,8 @@
-package com.batman.admin.site;
+package com.batman.upms.server.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -11,14 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/manage")
 public class ManageController {
 
-    private static Logger _log = LoggerFactory.getLogger(ManageController.class);
-
-    /**
-     * 后台首页
-     * @return
-     */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
+    public String index(ModelMap modelMap) {
         return "/manage/index.jsp";
     }
 }

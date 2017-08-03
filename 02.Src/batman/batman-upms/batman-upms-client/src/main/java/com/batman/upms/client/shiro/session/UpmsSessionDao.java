@@ -18,6 +18,8 @@ public class UpmsSessionDao extends CachingSessionDAO {
 
     @Override
     protected Serializable doCreate(Session session) {
+        Serializable sessionid = generateSessionId(session);
+        assignSessionId(session, sessionid);
         return null;
     }
 

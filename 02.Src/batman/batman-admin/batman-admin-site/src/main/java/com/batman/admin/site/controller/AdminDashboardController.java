@@ -19,10 +19,4 @@ public class AdminDashboardController {
         Object bean = SpringContextUtil.getBean("shiroFilter");
         return "/index.html";
     }
-
-    @RequestMapping(value = "/xxx", method = RequestMethod.GET)
-    public String xxx() {
-        Object bean = SpringContextUtil.getBean("shiroFilter");
-        return "/index.html";
-    }
 }
