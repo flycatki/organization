@@ -1,8 +1,6 @@
 package com.batman.upms.rpc;
 
 import com.batman.common.util.SpringContextUtil;
-import com.batman.upms.dao.mapper.UpmsUserMapper;
-import com.batman.upms.rpc.service.impl.UpmsUserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
