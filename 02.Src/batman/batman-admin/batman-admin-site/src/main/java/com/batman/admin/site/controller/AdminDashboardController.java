@@ -1,5 +1,6 @@
 package com.batman.admin.site.controller;
 
+import com.batman.common.util.SpringContextUtil;
 import com.batman.upms.rpc.api.UpmsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,13 @@ public class AdminDashboardController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
+        Object bean = SpringContextUtil.getBean("shiroFilter");
+        return "/index.html";
+    }
+
+    @RequestMapping(value = "/xxx", method = RequestMethod.GET)
+    public String xxx() {
+        Object bean = SpringContextUtil.getBean("shiroFilter");
         return "/index.html";
     }
 }

@@ -2,6 +2,8 @@ package com.batman.upms.client.shiro.filter;
 
 import com.batman.common.util.PropertiesFileUtil;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.AuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
@@ -19,6 +21,19 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
     private final static String BATMAN_UPMS_CLIENT_SESSION_ID = "batman-upms-client-session-id";
     //单点同一个code所有局部会话key
     private final static String BATMAN_UPMS_CLIENT_SESSION_IDS = "batman-upms-client-session-id";
+
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
+        Subject subject = getSubject(request, response);
+        Session session = subject.getSession();
+        //判断请求类型
+        String upmsType = PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.type");
+        if ("client".equals(upmsType)) {
+            return validateClient(request, response);
+        }
+
+        return false;
+    }
 
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
@@ -42,6 +57,16 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         }
         sso_server_url.append("&").append("backurl").append("=").append(URLEncoder.encode(backurl.toString(), "utf-8"));
         WebUtils.toHttp(servletResponse).sendRedirect(sso_server_url.toString());
+        return false;
+    }
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    private boolean validateClient(ServletRequest request, ServletResponse response) {
         return false;
     }
 }

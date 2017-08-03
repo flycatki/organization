@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/manage")
-public class ManagerController {
+public class ManageController {
 
-    private static Logger _log = LoggerFactory.getLogger(ManagerController.class);
+    private static Logger _log = LoggerFactory.getLogger(ManageController.class);
 
     /**
      * 后台首页
      * @return
      */
-    @ApiOperation(value = "后台首页")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "/manage/index.jsp";
