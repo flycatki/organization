@@ -2,17 +2,28 @@ package com.batman.upms.server.controller;
 
 import com.batman.common.base.BaseController;
 import com.batman.common.util.RedisUtil;
+import com.batman.upms.common.constant.UpmsResult;
+import com.batman.upms.common.constant.UpmsResultConstant;
+import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ObjectInputStream;
 import java.net.URLEncoder;
 
 @Controller
@@ -61,5 +72,43 @@ public class SSOController extends BaseController {
             return "redirect:" + backurl;
         }
         return "/sso/login.jsp";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public Object login(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String rememberMe = request.getParameter("rememberMe");
+        if (StringUtils.isBlank(username)) {
+            return new UpmsResult(UpmsResultConstant.EMPTY_USERNAME, "帐号不能为空！");
+        }
+        if (StringUtils.isBlank(password)) {
+            return new UpmsResult(UpmsResultConstant.EMPTY_PASSWORD, "密码不能为空！");
+        }
+
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        String sessionId = session.getId().toString();
+        String hasCode = RedisUtil.get(BATMAN_UPMS_SERVER_SESSION_ID + "_" + sessionId);
+        //code值校验
+        if (StringUtils.isBlank(hasCode)) {
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+            try {
+                if (BooleanUtils.toBoolean(rememberMe)) {
+                    usernamePasswordToken.setRememberMe(true);
+                } else {
+                    usernamePasswordToken.setRememberMe(false);
+                }
+                subject.login(usernamePasswordToken);
+            } catch (UnknownAccountException e) {
+                return new UpmsResult(UpmsResultConstant.INVALID_USERNAME, "帐号不存在！");
+            } catch (IncorrectCredentialsException e) {
+                return new UpmsResult(UpmsResultConstant.INVALID_PASSWORD, "密码错误！");
+            } catch (LockedAccountException e) {
+                return new UpmsResult(UpmsResultConstant.INVALID_ACCOUNT, "帐号已锁定！");
+            }
+        }
+        return null;
     }
 }

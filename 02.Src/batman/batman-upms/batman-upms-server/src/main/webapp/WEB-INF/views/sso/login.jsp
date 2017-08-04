@@ -15,25 +15,27 @@
     <title>权限管理系统</title>
 </head>
 <body>
-<div id="login-window">
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-        <div class="fg-line">
-            <input id="username" type="text" class="form-control" name="username" placeholder="帐号" required autofocus value="admin">
+<form action="/sso/login" method="post">
+    <div id="login-window">
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+            <div class="fg-line">
+                <input id="username" type="text" class="form-control" name="username" placeholder="帐号" required autofocus value="admin">
+            </div>
         </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
-        <div class="fg-line">
-            <input id="password" type="password" class="form-control" name="password" placeholder="密码" required value="123456">
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+            <div class="fg-line">
+                <input id="password" type="password" class="form-control" name="password" placeholder="密码" required value="123456">
+            </div>
         </div>
+        <div class="clearfix">
+        </div>
+        <div class="checkbox">
+            <input id="rememberMe" type="checkbox" class="checkbix" data-text="自动登录" name="rememberMe">
+        </div>
+        <Button type="submit">登录</Button>
     </div>
-    <div class="clearfix">
-    </div>
-    <div class="checkbox">
-        <input id="rememberMe" type="checkbox" class="checkbix" data-text="自动登录" name="rememberMe">
-    </div>
-    <a id="login-bt" href="javascript:;" class="waves-effect waves-button waves-float"><i class="zmdi zmdi-arrow-forward"></i></a>
-</div>
+</form>
 </body>
 </html>
