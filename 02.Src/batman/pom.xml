@@ -22,6 +22,7 @@
         <module>batman-oss</module>
         <module>batman-opms</module>
         <module>batman-ui</module>
+        <module>batman-admin-ui</module>
     </modules>
 
 
