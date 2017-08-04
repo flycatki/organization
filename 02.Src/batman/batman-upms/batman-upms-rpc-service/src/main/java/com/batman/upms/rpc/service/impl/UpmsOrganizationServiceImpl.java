@@ -6,11 +6,14 @@ import com.batman.upms.dao.mapper.UpmsOrganizationMapper;
 import com.batman.upms.dao.model.UpmsOrganization;
 import com.batman.upms.dao.model.UpmsOrganizationExample;
 import com.batman.upms.rpc.api.UpmsOrganizationService;
+import com.batman.upms.rpc.mapper.UpmsOrganizationExtMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
 * UpmsOrganizationService实现
@@ -25,5 +28,12 @@ private static Logger _log = LoggerFactory.getLogger(UpmsOrganizationServiceImpl
 
     @Autowired
     UpmsOrganizationMapper UpmsOrganizationMapper;
+
+    @Autowired
+    UpmsOrganizationExtMapper upmsOrganizationExtMapper;
+
+    public List<UpmsOrganization> selectUpmsWorkByUserid(String userId) {
+        return null;
+    }
 
 }
