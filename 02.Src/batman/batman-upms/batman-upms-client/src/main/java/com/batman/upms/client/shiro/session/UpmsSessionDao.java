@@ -47,6 +47,8 @@ public class UpmsSessionDao extends CachingSessionDAO {
 
     @Override
     protected Session doReadSession(Serializable sessionId) {
-        return null;
+        String session = RedisUtil.get(BATMAN_UPMS_SHIRO_SESSION_ID + "_" + sessionId);
+        _log.debug("doReadSession >>>>> sessionId={}", sessionId);
+        return SerializableUtil.deserialize(session);
     }
 }
