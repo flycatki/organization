@@ -17,4 +17,8 @@
     <bean id="upmsUserService" class="com.batman.upms.rpc.service.impl.UpmsUserServiceImpl"/>
     <dubbo:service interface="com.batman.upms.rpc.api.UpmsUserService" ref="upmsUserService" timeout="10000"/>
 
+    <!-- 接口服务 -->
+    <bean id="upmsApiService" class="com.batman.upms.rpc.service.impl.UpmsApiServiceImpl"/>
+    <dubbo:service interface="com.batman.upms.rpc.api.UpmsApiService" ref="upmsApiService" timeout="10000"/>
+
 </beans>

@@ -2,6 +2,7 @@ package com.batman.upms.client.shiro.realm;
 
 import com.batman.common.util.PropertiesFileUtil;
 import com.batman.upms.dao.model.UpmsUser;
+import com.batman.upms.rpc.api.UpmsApiService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -9,8 +10,13 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UpmsRealm extends AuthorizingRealm {
+
+    @Autowired
+    private UpmsApiService upmsApiService;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         return null;
@@ -32,7 +38,7 @@ public class UpmsRealm extends AuthorizingRealm {
             return new SimpleAuthenticationInfo(username, password, getName());
         }
 
-        //UpmsUser upmsUser = upmsApi
+        UpmsUser upmsUser = upmsApiService.selectUpmsUserByUsername(username);
         return null;
     }
 }

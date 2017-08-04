@@ -7,15 +7,12 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
 
-    <dubbo:application name="batman-admin-site"/>
+    <dubbo:application name="batman-upms-server"/>
 
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry file="./batman-upms-server-dubbo.cache" address="zookeeper://zkserver:2181"/>
 
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
-
-    <!-- 接口服务 -->
-    <dubbo:reference id="upmsUserService" interface="com.batman.upms.rpc.api.UpmsUserService" mock="true"/>
 
     <!-- 接口服务 -->
     <dubbo:reference id="upmsApiService" interface="com.batman.upms.rpc.api.UpmsApiService" mock="true"/>
