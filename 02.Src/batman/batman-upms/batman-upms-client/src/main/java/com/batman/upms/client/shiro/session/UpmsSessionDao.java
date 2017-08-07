@@ -10,7 +10,6 @@ import org.apache.shiro.session.mgt.eis.CachingSessionDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
-import sun.plugin2.os.windows.SECURITY_ATTRIBUTES;
 
 import java.io.Serializable;
 import java.util.Set;
