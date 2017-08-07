@@ -13,13 +13,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>权限管理系统</title>
-<link type="text/css"
-	href="${basePath}/main/webapp/resources/batman-admin-ui/js/puugins/bootstrap-3.3.0/css/bootstrap.min.css"
-	rel="stylesheet">
-<script type="text/javascript"
-	src="<c:url value='/main/webapp/resources/batman-admin-ui/js/plugins/jquery.1.12.4.min.js' />"></script>
-<script type="text/javascript"
-	src="<c:url value='/main/webapp/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.min.js' />"></script>
+<link type="text/css" href="${basePath}/main/webapp/resources/batman-admin-ui/js/puugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="<c:url value='/main/webapp/resources/batman-admin-ui/js/plugins/jquery.1.12.4.min.js' />"></script>
+<script type="text/javascript" src="<c:url value='/main/webapp/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.min.js' />"></script>
 <style type="text/css">
 #logindev {
 	position: absolute;
@@ -34,15 +30,14 @@
 </style>
 <script type="text/javascript">
 	$('#submit').click(function() {
-		var backurl = $('#backurl').val();
+		var backurl = ${param.backurl};
 		$.ajax({
 			//提交数据的类型 POST GET
 			type : "POST",
 			//提交的网址
-			url : "/sso/login",
+			url : "/sso/login?backurl=" + backurl,
 			//提交的数据
 			data : {
-				backurl : backurl,
 				username : $('#username').val(),
 				password : $('#password').val()
 			},
@@ -86,8 +81,7 @@
 					<div class="input-group m-b-20">
 						<span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
 						<div class="fg-line">
-							<input id="password" type="password" class="form-control"
-								name="password" placeholder="密码" required value="123456">
+							<input id="password" type="password" class="form-control" name="password" placeholder="密码" required value="123456">
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -99,7 +93,6 @@
 				</div>
 			</form>
 		</div>
-		<input id="backurl" type="hidden" value="${param.backurl}" />
 	</div>
 	<%-- <div class="container">
 			<div class="col-xs-4 col-xs-offset-4" id="logindev">
