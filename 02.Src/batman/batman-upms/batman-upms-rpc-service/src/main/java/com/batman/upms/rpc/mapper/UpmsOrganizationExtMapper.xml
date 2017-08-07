@@ -14,6 +14,14 @@
     </resultMap>
 
     <select id="selectUpmsWorkByUserid" parameterType="String" resultMap="BaseResultMap">
-
+		select uo.id ,uo.name from upms_organization uo
+		inner join upms_organization_user uou on uou.umps_organization_id = uo.id
+		inner join umps_user uu on uu.id = uou.umps_user_id
+		where uo.isenable = 1 
+		and uu.status = 0
+		and uo.deleteflag = 0 
+		and uou.deleteflag = 0
+		and uu.deleteflag = 0
+		and uu.id = #{userId}
     </select>
 </mapper>
