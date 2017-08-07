@@ -33,7 +33,7 @@ private static Logger _log = LoggerFactory.getLogger(UpmsOrganizationServiceImpl
     UpmsOrganizationExtMapper upmsOrganizationExtMapper;
 
     public List<UpmsOrganization> selectUpmsWorkByUserid(String userId) {
-        return null;
+        return upmsOrganizationExtMapper.selectUpmsWorkByUserid(userId);
     }
 
 }
