@@ -2,8 +2,11 @@ package com.batman.upms.server.controller;
 
 import com.batman.common.base.BaseController;
 import com.batman.common.util.RedisUtil;
+import com.batman.upms.client.shiro.session.UpmsSession;
+import com.batman.upms.client.shiro.session.UpmsSessionDao;
 import com.batman.upms.common.constant.UpmsResult;
 import com.batman.upms.common.constant.UpmsResultConstant;
+import com.batman.upms.rpc.api.UpmsApiService;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -15,6 +18,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +41,9 @@ public class SSOController extends BaseController {
     private final static String BATMAN_UPMS_SERVER_SESSION_IDS = "batman-upms-server-session-ids";
 
     private final static String BATMAN_UPMS_SEVER_CODE = "batman-upms-server-code";
+
+    @Autowired
+    UpmsSessionDao upmsSessionDao;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String inde(HttpServletRequest request) throws Exception {
@@ -108,7 +115,14 @@ public class SSOController extends BaseController {
             } catch (LockedAccountException e) {
                 return new UpmsResult(UpmsResultConstant.INVALID_ACCOUNT, "帐号已锁定！");
             }
+            // 更新session状态
+            upmsSessionDao.updateStatus(sessionId, UpmsSession.OnlineStatus.on_line);
         }
-        return null;
+        String backurl = request.getParameter("backurl");
+        if (StringUtils.isBlank(backurl)) {
+            return new UpmsResult(UpmsResultConstant.SUCCESS, "/");
+        } else {
+            return new UpmsResult(UpmsResultConstant.SUCCESS, backurl);
+        }
     }
 }

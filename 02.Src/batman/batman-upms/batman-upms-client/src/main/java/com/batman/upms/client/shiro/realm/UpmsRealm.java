@@ -3,10 +3,7 @@ package com.batman.upms.client.shiro.realm;
 import com.batman.common.util.PropertiesFileUtil;
 import com.batman.upms.dao.model.UpmsUser;
 import com.batman.upms.rpc.api.UpmsApiService;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -38,7 +35,17 @@ public class UpmsRealm extends AuthorizingRealm {
             return new SimpleAuthenticationInfo(username, password, getName());
         }
 
+        //查询用户信息
         UpmsUser upmsUser = upmsApiService.selectUpmsUserByUsername(username);
-        return null;
+        if (null == upmsUser) {
+            throw new UnknownAccountException();
+        }
+        if (!upmsUser.getPassword().equals(password)) {
+            throw new IncorrectCredentialsException();
+        }
+        if (upmsUser.getStatus() == 1) {
+            throw new LockedAccountException();
+        }
+        return new SimpleAuthenticationInfo(username, password, getName());
     }
 }
