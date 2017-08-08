@@ -5,12 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-</head>
 <body>
 权限管理系统
 <a class="waves-effect" href="${basePath}/sso/logout">退出登录</a>
 </body>
-</html>

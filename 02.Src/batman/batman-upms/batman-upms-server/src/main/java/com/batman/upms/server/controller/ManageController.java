@@ -12,6 +12,6 @@ public class ManageController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
-        return "/manage/index.jsp";
+        return "manage/index.page";
     }
 }

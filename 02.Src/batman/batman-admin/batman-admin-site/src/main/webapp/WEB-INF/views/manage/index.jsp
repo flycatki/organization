@@ -4,3 +4,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <c:redirect url="http://localhost:1111/"/>
+client index
