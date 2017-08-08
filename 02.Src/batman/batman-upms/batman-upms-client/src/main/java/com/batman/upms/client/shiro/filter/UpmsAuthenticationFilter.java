@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.batman.common.util.PropertiesFileUtil;
 import com.batman.common.util.RedisUtil;
 import com.batman.upms.client.shiro.util.RequestParameterUtil;
+import com.batman.upms.common.constant.UpmsConstant;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -46,6 +47,7 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         Session session = subject.getSession();
         //判断请求类型
         String upmsType = PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.type");
+        session.setAttribute(UpmsConstant.UPMS_TYPE, upmsType);
         if ("client".equals(upmsType)) {
             return validateClient(request, response);
         }
