@@ -5,6 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
@@ -12,9 +13,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>权限管理系统</title>
-<link type="text/css" href="../../../resources/batman-admin-ui/js/puugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="../../../resources/batman-admin-ui/js/plugins/jquery.1.12.4.min.js"></script>
-<script type="text/javascript" src="../../../resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<link type="text/css" href="${basePath}/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="${basePath}/resources/batman-admin-ui/js/plugins/jquery.1.12.4.min.js"></script>
+<script type="text/javascript" src="${basePath}/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 #logindev {
 	position: absolute;
@@ -49,8 +50,7 @@
 				</div>
 				<div class="clearfix"></div>
 				<div class="checkbox">
-					<input id="rememberMe" type="checkbox" class="checkbix"
-						data-text="自动登录" name="rememberMe">
+					<input id="rememberMe" type="checkbox" class="checkbix" data-text="自动登录" name="rememberMe">
 				</div>
 				<Button id="submit" type="submit">登录</Button>
 			</div>
@@ -73,38 +73,43 @@
 				</form>
 			</div>
 		</div>--%>
-	<script type="text/javascript">
-        var backurl = ${param.backurl};
-	</script>
+	<script>var BASE_PATH = '${basePath}';</script>
+	<script>var BACK_URL = '${param.backurl}';</script>
 	<script type="text/javascript">
         $('#submit').click(function() {
             $.ajax({
                 //提交数据的类型 POST GET
                 type : "POST",
                 //提交的网址
-                url : "/sso/login?backurl=" + backurl,
+                url : BASE_PATH + "/sso/login",
                 //提交的数据
                 data : {
                     username : $('#username').val(),
-                    password : $('#password').val()
+                    password : $('#password').val(),
+                    rememberMe: $('#rememberMe').is(':checked'),
+                    backurl: BACK_URL
                 },
-                //返回数据的格式
-                datatype : "json",//"html","xml", "html", "script",  "jsonp", "text".
-                //在请求之前调用的函数
-                /*  beforeSend:function(){$("#msg").html("logining");},
-                 //成功返回之后调用的函数
-                 success:function(data){
-                $("#msg").html(decodeURI(data));
-                 }   ,
-                 //调用执行后调用的函数
-                 complete: function(XMLHttpRequest, textStatus){
-                    alert(XMLHttpRequest.responseText);
-                    alert(textStatus);
-                     //HideLoading();
-                 }, */
+                beforeSend: function() {
+
+                },
+                //成功返回之后调用的函数
+				success:function(json){
+                    if (json.code == 1) {
+                        location.href = json.data;
+                    } else {
+                        alert(json.data);
+                        if (10101 == json.code) {
+                            $('#username').focus();
+                        }
+                        if (10102 == json.code) {
+                            $('#password').focus();
+                        }
+                    }
+                 },
                 //调用出错执行的函数
-                error : function() {
+                error : function(error) {
                     //请求出错处理
+                    console.log(error);
                 }
             });
 

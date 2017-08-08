@@ -6,7 +6,6 @@ import com.batman.upms.client.shiro.session.UpmsSession;
 import com.batman.upms.client.shiro.session.UpmsSessionDao;
 import com.batman.upms.common.constant.UpmsResult;
 import com.batman.upms.common.constant.UpmsResultConstant;
-import com.batman.upms.rpc.api.UpmsApiService;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -27,8 +26,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ObjectInputStream;
 import java.net.URLEncoder;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/sso")
@@ -117,12 +116,52 @@ public class SSOController extends BaseController {
             }
             // 更新session状态
             upmsSessionDao.updateStatus(sessionId, UpmsSession.OnlineStatus.on_line);
+            //全局会话sessionId列表，供会话管理
+            RedisUtil.lpush(BATMAN_UPMS_SERVER_SESSION_IDS, sessionId.toString());
+            //默认验证帐号密码正确，创建code
+            String code = UUID.randomUUID().toString();
+            //全局会话code
+            RedisUtil.set(BATMAN_UPMS_SERVER_SESSION_ID + "_" + sessionId, code, (int) subject.getSession().getTimeout() / 1000);
+            //code校验值
+            RedisUtil.set(BATMAN_UPMS_SEVER_CODE + "_" + code, code, (int) subject.getSession().getTimeout() / 1000);
         }
+        //回跳登录地址
         String backurl = request.getParameter("backurl");
         if (StringUtils.isBlank(backurl)) {
             return new UpmsResult(UpmsResultConstant.SUCCESS, "/");
         } else {
             return new UpmsResult(UpmsResultConstant.SUCCESS, backurl);
         }
+    }
+
+    /**
+     * 校验code
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/code", method = RequestMethod.POST)
+    @ResponseBody
+    public Object code(HttpServletRequest request) {
+        String codeParam = request.getParameter("code");
+        String code = RedisUtil.get(BATMAN_UPMS_SEVER_CODE + "_" + codeParam);
+        if (StringUtils.isBlank(codeParam) || !codeParam.equals(code)) {
+            new UpmsResult(UpmsResultConstant.FAILED, "无效code");
+        }
+        return new UpmsResult(UpmsResultConstant.SUCCESS, code);
+    }
+
+    /**
+     * 退出登录
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        SecurityUtils.getSubject().logout();
+        String redirectUrl = request.getHeader("Referer");
+        if (null == redirectUrl) {
+            redirectUrl = "/";
+        }
+        return "redirect:" + redirectUrl;
     }
 }

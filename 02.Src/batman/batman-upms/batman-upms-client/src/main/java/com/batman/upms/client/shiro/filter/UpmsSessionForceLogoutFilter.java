@@ -2,6 +2,7 @@ package com.batman.upms.client.shiro.filter;
 
 import org.apache.shiro.session.Session;
 import org.apache.shiro.web.filter.AccessControlFilter;
+import org.apache.shiro.web.util.WebUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -19,6 +20,9 @@ public class UpmsSessionForceLogoutFilter extends AccessControlFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
+        getSubject(servletRequest, servletResponse).logout();
+        String loginUrl = getLoginUrl() + (getLoginUrl().contains("?") ? "&" : "?") + "forceLogout=1";
+        WebUtils.issueRedirect(servletRequest, servletResponse, loginUrl);
         return false;
     }
 }
