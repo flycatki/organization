@@ -30,7 +30,7 @@ public class UpmsRealm extends AuthorizingRealm {
         String username = (String) token.getPrincipal();
         String password = new String((char[]) token.getCredentials());
         //client无密认证
-        String upmsType = PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.client");
+        String upmsType = PropertiesFileUtil.getInstance("batman-upms-client").get("batman.upms.type");
         if ("client".equals(upmsType)) {
             return new SimpleAuthenticationInfo(username, password, getName());
         }
