@@ -5,6 +5,7 @@ import com.batman.upms.dao.model.UpmsUser;
 import com.batman.upms.rpc.api.UpmsApiService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,17 @@ public class UpmsRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        return null;
+        String username = (String) principals.getPrimaryPrincipal();
+        UpmsUser upmsUser = upmsApiService.selectUpmsUserByUsername(username);
+
+        //获取当前用户的所有角色
+
+        //获取当前用户所有权限
+
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        //simpleAuthorizationInfo.setStringPermissions(premissions);
+        //simpleAuthorizationInfo.setRoles(roles);
+        return simpleAuthorizationInfo;
     }
 
     /**
