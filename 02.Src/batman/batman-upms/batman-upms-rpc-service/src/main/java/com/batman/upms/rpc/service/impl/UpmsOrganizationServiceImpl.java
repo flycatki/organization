@@ -32,8 +32,8 @@ private static Logger _log = LoggerFactory.getLogger(UpmsOrganizationServiceImpl
     @Autowired
     UpmsOrganizationExtMapper upmsOrganizationExtMapper;
 
-    public List<UpmsOrganization> selectUpmsWorkByUserid(String userId) {
-        return upmsOrganizationExtMapper.selectUpmsWorkByUserid(userId);
+    public List<UpmsOrganization> selectUpmsWorkByUserid(String userId,String system_uuid) {
+        return upmsOrganizationExtMapper.selectUpmsWorkByUserid(userId,system_uuid);
     }
 
 }
