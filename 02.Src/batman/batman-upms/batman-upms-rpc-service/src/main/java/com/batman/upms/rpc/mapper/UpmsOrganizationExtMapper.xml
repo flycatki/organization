@@ -13,15 +13,20 @@
         <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
     </resultMap>
 
-    <select id="selectUpmsWorkByUserid" parameterType="String" resultMap="BaseResultMap">
-		select uo.id ,uo.name from upms_organization uo
-		inner join upms_organization_user uou on uou.umps_organization_id = uo.id
-		inner join umps_user uu on uu.id = uou.umps_user_id
+    <select id="selectUpmsWorkByUserid" resultMap="BaseResultMap">
+		select uo.uuid,uo.id,uo.name from upms_organization uo
+		inner join upms_organization_user uou on uou.upms_organization_uuid = uo.uuid
+		inner join upms_user uu on uu.uuid = uou.umps_user_uuid
+		inner join upms_organization_system uos on uos.upms_organization_uuid = uo.uuid
+		inner join upms_system us on us.uuid = uos.upms_system_uuid
 		where uo.isenable = 1 
 		and uu.status = 0
 		and uo.deleteflag = 0 
 		and uou.deleteflag = 0
 		and uu.deleteflag = 0
-		and uu.id = #{userId}
+		and uos.deleteflag = 0
+		and us.deleteflag = 0
+		and uu.id = #{userId,jdbcType=VARCHAR}
+		and us.uuid = #{system_uuid,jdbcType=VARCHAR}
     </select>
 </mapper>
