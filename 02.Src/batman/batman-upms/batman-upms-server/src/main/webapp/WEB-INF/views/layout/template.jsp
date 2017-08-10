@@ -20,6 +20,8 @@
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/css/bootstrap.css" rel="stylesheet">
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/style.min.css" rel="stylesheet">
+
 <%--    <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
@@ -152,8 +154,8 @@
 
 
                     <li>
-                        <a href="login.html">
-                            <i class="fa fa-sign-out"></i> Log out
+                        <a href="${basePath}/sso/logout">
+                            <i class="fa fa-sign-out"></i> 退出登录
                         </a>
                     </li>
                     <li>
@@ -163,6 +165,25 @@
                     </li>
                 </ul>
             </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Tree view</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>Miscellaneous</a>
+                    </li>
+                    <li class="active">
+                        <strong>Tree view</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
         </div>
         <tiles:insertAttribute name="body" />
         <div class="row">
@@ -179,10 +200,7 @@
         </div>
     </div>
 
-<!-- Mainly scripts -->
-<script src="${basePath}/resources/batman-admin-ui/js/plugins/jquery-2.1.1.js"></script>
-<script src="${basePath}/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.js"></script>
-<script src="${basePath}/resources/batman-admin-ui/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="${basePath}/resources/batman-admin-ui/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- ./wrapper -->
+    <tiles:insertAttribute name="script" />
 </body>
 </html>
