@@ -14,12 +14,21 @@
     <definition name="sso.login.page" template="/WEB-INF/views/sso/login.jsp">
     </definition>
 
+    <definition name="error.page" template="/WEB-INF/views/error.jsp">
+    </definition>
+    <definition name="403.page" template="/WEB-INF/views/403.jsp">
+    </definition>
+
     <!-- 不继承直接引用也行 -->
     <definition name="*.page" extends="template_base" >
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
     </definition>
     <definition name="*/*.page" extends="template_base">
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+
+    <definition name="*/*/*.page" extends="template_base">
+        <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
     </definition>
 
 </tiles-definitions>

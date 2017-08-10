@@ -1,3 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <ul class="nav metismenu" id="side-menu">
     <li class="nav-header">
         <div class="dropdown profile-element">
@@ -27,15 +34,16 @@
     <li class="active">
         <a href="index.html">
             <i class="fa fa-th-large"></i>
-            <span class="nav-label">Dashboards</span>
+            <span class="nav-label">系统维护</span>
             <span class="fa arrow"></span>
         </a>
         <ul class="nav nav-second-level">
-            <li class="active"><a href="index.html">Dashboard v.1</a></li>
-            <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-            <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-            <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-            <li><a href="dashboard_5.html">Dashboard v.5 <span class="label label-primary pull-right">NEW</span></a>
+            <li><a href="dashboard_2.html">应用管理</a></li>
+            <li class="active"><a href="${basePath}/manage/organization/index">组织机构管理</a></li>
+            <li><a href="dashboard_2.html">角色管理</a></li>
+            <li><a href="dashboard_3.html">权限管理</a></li>
+            <li><a href="dashboard_4_1.html">用户管理</a></li>
+            <li><a href="dashboard_5.html">日志管理 <span class="label label-primary pull-right">NEW</span></a>
             </li>
         </ul>
     </li>
