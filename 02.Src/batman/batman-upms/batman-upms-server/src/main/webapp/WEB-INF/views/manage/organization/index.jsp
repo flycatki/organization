@@ -160,11 +160,14 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div class="input-group">
-                        <input type="text" placeholder="搜索组织机构 " class="input form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> 搜索</button>
-                        </span>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-primary" id="showtoast"><i class="fa fa-plus"></i> 新增</button>
+                            <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="搜索" />
+                        </div>
                     </div>
                     <div id="jstree1">
                         <ul>
@@ -201,54 +204,64 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>xx详细信息</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="ibox">
                 <div class="ibox-content">
+                    <div class="panel blank-panel">
+                        <div class="panel-heading">
+                            <div class="panel-options">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab-1" data-toggle="tab">组织机构项目</a></li>
+                                    <li class=""><a href="#tab-2" data-toggle="tab">分配用户</a></li>
+                                    <li class=""><a href="#tab-3" data-toggle="tab">分配角色</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
 
-                    <div class="form-horizontal">
-                        <div class="form-group"><label class="col-sm-2 control-label">组织机构名称</label>
-                            <div class="col-sm-10"><input type="text" class="form-control"></div>
-                        </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">组织机构类型</label>
-                            <div class="col-sm-10">
-                                <label class="checkbox-inline i-checks"> <input type="radio" checked value="option1" name="rdoOrg"> 部门 </label>
-                                <label class="checkbox-inline i-checks"> <input type="radio" value="option2" name="rdoOrg"> 岗位 </label>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-1">
+                                    <div class="form-horizontal">
+                                        <div class="form-group"><label class="col-sm-2 control-label">组织机构名称</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">组织机构类型</label>
+                                            <div class="col-sm-10">
+                                                <label class="checkbox-inline i-checks"> <input type="radio" checked value="option1" name="rdoOrg"> 部门 </label>
+                                                <label class="checkbox-inline i-checks"> <input type="radio" value="option2" name="rdoOrg"> 岗位 </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">状态</label>
+                                            <div class="col-sm-10">
+                                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option1"> 可见 </label>
+                                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option2"> 可用 </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">描述</label>
+                                            <div class="col-sm-10"><textarea class="form-control" placeholder="内容" rows="3"></textarea></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab-2">
+                                    <div class="sk-fading-circle-wrapper" style="display: none;">
+                                        <div class="sk-fading-circle">
+                                            <div class="sk-circle1 sk-circle"></div>
+                                            <div class="sk-circle2 sk-circle"></div>
+                                            <div class="sk-circle3 sk-circle"></div>
+                                            <div class="sk-circle4 sk-circle"></div>
+                                            <div class="sk-circle5 sk-circle"></div>
+                                            <div class="sk-circle6 sk-circle"></div>
+                                            <div class="sk-circle7 sk-circle"></div>
+                                            <div class="sk-circle8 sk-circle"></div>
+                                            <div class="sk-circle9 sk-circle"></div>
+                                            <div class="sk-circle10 sk-circle"></div>
+                                            <div class="sk-circle11 sk-circle"></div>
+                                            <div class="sk-circle12 sk-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab-3">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">状态</label>
-                            <div class="col-sm-10">
-                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option1"> 可见 </label>
-                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option2"> 可用 </label>
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">描述</label>
-                            <div class="col-sm-10"><textarea class="form-control" placeholder="内容" rows="3"></textarea></div>
-                        </div>
-                    </div>
-                    <div class="sk-fading-circle-wrapper">
-                        <div class="sk-fading-circle">
-                            <div class="sk-circle1 sk-circle"></div>
-                            <div class="sk-circle2 sk-circle"></div>
-                            <div class="sk-circle3 sk-circle"></div>
-                            <div class="sk-circle4 sk-circle"></div>
-                            <div class="sk-circle5 sk-circle"></div>
-                            <div class="sk-circle6 sk-circle"></div>
-                            <div class="sk-circle7 sk-circle"></div>
-                            <div class="sk-circle8 sk-circle"></div>
-                            <div class="sk-circle9 sk-circle"></div>
-                            <div class="sk-circle10 sk-circle"></div>
-                            <div class="sk-circle11 sk-circle"></div>
-                            <div class="sk-circle12 sk-circle"></div>
                         </div>
                     </div>
                 </div>
@@ -259,6 +272,34 @@
 
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/jstree.min.js"></script>
 <style>
+    @-webkit-keyframes antCheckboxEffect {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: .5
+        }
+
+        to {
+            -webkit-transform: scale(1.6);
+            transform: scale(1.6);
+            opacity: 0
+        }
+    }
+
+    @keyframes antCheckboxEffect {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: .5
+        }
+
+        to {
+            -webkit-transform: scale(1.6);
+            transform: scale(1.6);
+            opacity: 0
+        }
+    }
+
     .jstree-open > .jstree-anchor > .fa-folder:before {
         content: "\f07c";
     }
@@ -270,6 +311,8 @@
     #jstree1 {
         margin-top: 20px;
     }
+
+
 </style>
 
 <script>

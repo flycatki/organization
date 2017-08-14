@@ -187,17 +187,8 @@
             </div>
         </div>
         <tiles:insertAttribute name="body" />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="wrapper wrapper-content">
-
-                    </div>
-                    <div class="footer">
-                        <tiles:insertAttribute name="footer" />
-                    </div>
-                </div>
-            </div>
+        <div class="footer">
+            <tiles:insertAttribute name="footer" />
         </div>
     </div>
 
