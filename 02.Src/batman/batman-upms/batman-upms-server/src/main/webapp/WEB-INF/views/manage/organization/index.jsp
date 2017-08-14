@@ -146,7 +146,7 @@
 </style>
 <div class="wrapper wrapper-content">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>组织机构</h5>
@@ -160,7 +160,12 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
+                    <div class="input-group">
+                        <input type="text" placeholder="搜索组织机构 " class="input form-control">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> 搜索</button>
+                        </span>
+                    </div>
                     <div id="jstree1">
                         <ul>
                             <li class="jstree-open">Admin theme
@@ -195,10 +200,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>输入侧</h5>
+                    <h5>xx详细信息</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -210,7 +215,26 @@
                 </div>
                 <div class="ibox-content">
 
-                    <div id="using_json">test</div>
+                    <div class="form-horizontal">
+                        <div class="form-group"><label class="col-sm-2 control-label">组织机构名称</label>
+                            <div class="col-sm-10"><input type="text" class="form-control"></div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">组织机构类型</label>
+                            <div class="col-sm-10">
+                                <label class="checkbox-inline i-checks"> <input type="radio" checked value="option1" name="rdoOrg"> 部门 </label>
+                                <label class="checkbox-inline i-checks"> <input type="radio" value="option2" name="rdoOrg"> 岗位 </label>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">状态</label>
+                            <div class="col-sm-10">
+                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option1"> 可见 </label>
+                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option2"> 可用 </label>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10"><textarea class="form-control" placeholder="内容" rows="3"></textarea></div>
+                        </div>
+                    </div>
                     <div class="sk-fading-circle-wrapper">
                         <div class="sk-fading-circle">
                             <div class="sk-circle1 sk-circle"></div>
@@ -242,10 +266,14 @@
     .jstree-default .jstree-icon.none {
         width: 0;
     }
+
+    #jstree1 {
+        margin-top: 20px;
+    }
 </style>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
         $('#jstree1').jstree({
             'core' : {
@@ -273,6 +301,11 @@
                 }
 
             }
+        });
+
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
         });
     });
 </script>

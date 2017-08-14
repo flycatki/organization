@@ -1039,7 +1039,7 @@ button.dim:active:before {
   color: #5e5e5e;
   font-family: 'Open Sans';
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 3px 8px;
   text-shadow: none;
 }
@@ -8226,4 +8226,9 @@ body.md-skin {
   #page-wrapper {
     margin: 0;
   }
+}
+
+/* bootstrap rewrite */
+label {
+  font-weight: 400;
 }

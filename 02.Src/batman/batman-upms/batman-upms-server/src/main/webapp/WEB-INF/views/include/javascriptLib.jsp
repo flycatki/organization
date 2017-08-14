@@ -5,3 +5,4 @@
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/bootstrap-3.3.0/js/bootstrap.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/plugins/iCheck/icheck.min.js"></script>
