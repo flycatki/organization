@@ -1839,7 +1839,7 @@ div.dt-button-info {
   padding: 6px 12px;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
 }
 .form-control:focus,
 .single-line:focus {
@@ -8232,3 +8232,12 @@ body.md-skin {
 label {
   font-weight: 400;
 }
+
+.btn {
+  font-size: 12px;
+}
+
+.form-control {
+  height: 31px;
+}
+
