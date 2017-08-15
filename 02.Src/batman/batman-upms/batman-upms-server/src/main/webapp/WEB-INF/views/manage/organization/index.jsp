@@ -162,7 +162,7 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-lg-6">
-                            <button type="button" class="btn btn-primary" id="showtoast"><i class="fa fa-plus"></i> 新增</button>
+                            <button type="button" class="btn btn-primary" id="showtoast"><i class="fa fa-plus"></i> 添加</button>
                             <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
                         </div>
                         <div class="col-lg-6">
@@ -210,9 +210,9 @@
                         <div class="panel-heading">
                             <div class="panel-options">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab-1" data-toggle="tab">组织机构项目</a></li>
-                                    <li class=""><a href="#tab-2" data-toggle="tab">分配用户</a></li>
-                                    <li class=""><a href="#tab-3" data-toggle="tab">分配角色</a></li>
+                                    <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-book"></i>详细</a></li>
+                                    <li class=""><a href="#tab-2" data-toggle="tab"><i class="fa fa-user"></i>分配用户</a></li>
+                                    <li class=""><a href="#tab-3" data-toggle="tab"><i class="fa fa-user"></i>分配角色</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -226,14 +226,26 @@
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">组织机构类型</label>
                                             <div class="col-sm-10">
-                                                <label class="checkbox-inline i-checks"> <input type="radio" checked value="option1" name="rdoOrg"> 部门 </label>
-                                                <label class="checkbox-inline i-checks"> <input type="radio" value="option2" name="rdoOrg"> 岗位 </label>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
+                                                    <label for="inlineRadio1"> 部门 </label>
+                                                </div>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="inlineRadio2" value="option2" name="radioInline">
+                                                    <label for="inlineRadio2"> 岗位 </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">状态</label>
                                             <div class="col-sm-10">
-                                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option1"> 可见 </label>
-                                                <label class="checkbox-inline i-checks"> <input type="checkbox" checked value="option2"> 可用 </label>
+                                                <div class="checkbox checkbox-primary checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">
+                                                    <label for="inlineCheckbox1"> 可用 </label>
+                                                </div>
+                                                <div class="checkbox checkbox-primary checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                                                    <label for="inlineCheckbox2"> 可见 </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">描述</label>
@@ -260,6 +272,11 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab-3">
+                                    <div class="transfer">
+                                        <div class="transfer-list" style="width: 250px; height: 300px;">
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -344,11 +361,6 @@
                 }
 
             }
-        });
-
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green',
         });
     });
 </script>

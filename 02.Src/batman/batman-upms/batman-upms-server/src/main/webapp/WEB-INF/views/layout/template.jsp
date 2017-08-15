@@ -21,7 +21,7 @@
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/style.min.css" rel="stylesheet">
-    <link href="${basePath}/resources/batman-admin-ui/js/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
 <%--    <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
