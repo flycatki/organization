@@ -9,7 +9,7 @@
 
     <dubbo:application name="batman-upms-server"/>
 
-    <dubbo:registry file="./batman-upms-server-dubbo.cache" address="zookeeper://zkserver:2181"/>
+    <dubbo:registry file="./batman-upms-server-dubbo.cache" address="zookeeper://192.168.0.163:2181"/>
 
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
