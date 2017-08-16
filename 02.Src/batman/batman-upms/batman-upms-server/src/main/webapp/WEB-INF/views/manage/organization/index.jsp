@@ -336,8 +336,13 @@
     $(document).ready(function() {
 
         $('#jstree1').jstree({
-            'core' : {
-                'check_callback' : true
+            "core" : {
+                'check_callback' : true,
+                'data': {
+                    "url": "",
+                    "dataType": "json",
+                    "cache": "false"
+                }
             },
             'plugins' : [ 'types', 'dnd' ],
             'types' : {

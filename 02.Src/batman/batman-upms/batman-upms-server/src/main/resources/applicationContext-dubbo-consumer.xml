@@ -14,6 +14,9 @@
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
 
+    <!-- 组织结构服务 -->
+    <dubbo:reference id="upmsOrganizationService" interface="com.batman.upms.rpc.api.UpmsOrganizationService" mock="true"/>
+
     <!-- 接口服务 -->
     <dubbo:reference id="upmsApiService" interface="com.batman.upms.rpc.api.UpmsApiService" mock="true"/>
 
