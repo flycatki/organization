@@ -1,6 +1,7 @@
 package com.batman.common.base;
 
 import com.batman.common.util.SpringContextUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.lang.reflect.InvocationTargetException;
@@ -30,12 +31,34 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 
     @Override
     public int deleteByExample(Example example) {
-        return -1;
+        try {
+            Method deleteByExample = mapper.getClass().getDeclaredMethod("deleteByExample", example.getClass());
+            Object result = deleteByExample.invoke(mapper, example);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int deleteByPrimaryKey(String uuid) {
-        return -1;
+        try {
+            Method deleteByPrimaryKey = mapper.getClass().getDeclaredMethod("deleteByPrimaryKey", uuid.getClass());
+            Object result = deleteByPrimaryKey.invoke(mapper, uuid);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
@@ -72,11 +95,33 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 
     @Override
     public List<Record> selectByExampleWithBLOBs(Example example) {
+        try {
+            Method selectByExampleWithBLOBs = mapper.getClass().getDeclaredMethod("selectByExampleWithBLOBs", example.getClass());
+            Object result = selectByExampleWithBLOBs.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
 
     @Override
     public List<Record> selectByExample(Example example) {
+        try {
+            Method selectByExample = mapper.getClass().getDeclaredMethod("selectByExample", example.getClass());
+            Object result = selectByExample.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
 
@@ -87,52 +132,178 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 
     @Override
     public Record selectFirstByExample(Example example) {
+        try {
+            Method selectByExample = mapper.getClass().getDeclaredMethod("selectByExample", example.getClass());
+            List<Record> result = (List<Record>) selectByExample.invoke(mapper, example);
+            if (null != result && result.size() > 0) {
+                return result.get(0);
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
 
     @Override
     public Record selectFirstByExampleWithBLOBs(Example example) {
+        try {
+            Method selectByExampleWithBLOBs = mapper.getClass().getDeclaredMethod("selectByExampleWithBLOBs", example.getClass());
+            List<Record> result = (List<Record>) selectByExampleWithBLOBs.invoke(mapper, example);
+            if (null != result && result.size() > 0) {
+                return result.get(0);
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
 
     @Override
     public Record selectByPrimaryKey(String uuid) {
+        try {
+            Method selectByPrimaryKey = mapper.getClass().getDeclaredMethod("selectByPrimaryKey", uuid.getClass());
+            Object result = selectByPrimaryKey.invoke(mapper, uuid);
+            return (Record) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
 
     @Override
     public int updateByExampleSelective(@Param("record") Record record, @Param("example") Example example) {
-        return -1;
+        try {
+            Method updateByExampleSelective = mapper.getClass().getDeclaredMethod("updateByExampleSelective", record.getClass(), example.getClass());
+            Object result = updateByExampleSelective.invoke(mapper, record, example);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int updateByExampleWithBLOBs(@Param("record") Record record, @Param("example") Example example) {
-        return -1;
+        try {
+            Method updateByExampleWithBLOBs = mapper.getClass().getDeclaredMethod("updateByExampleWithBLOBs", record.getClass(), example.getClass());
+            Object result = updateByExampleWithBLOBs.invoke(mapper, record, example);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int updateByExample(@Param("record") Record record, @Param("example") Example example) {
-        return -1;
+        try {
+            Method updateByExample = mapper.getClass().getDeclaredMethod("updateByExample", record.getClass(), example.getClass());
+            Object result = updateByExample.invoke(mapper, record, example);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int updateByPrimaryKeySelective(Record record) {
-        return -1;
+        try {
+            Method updateByPrimaryKeySelective = mapper.getClass().getDeclaredMethod("updateByPrimaryKeySelective", record.getClass());
+            Object result = updateByPrimaryKeySelective.invoke(mapper, record);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int updateByPrimaryKeyWithBLOBs(Record record) {
-        return -1;
+        try {
+            Method updateByPrimaryKeyWithBLOBs = mapper.getClass().getDeclaredMethod("updateByPrimaryKeyWithBLOBs", record.getClass());
+            Object result = updateByPrimaryKeyWithBLOBs.invoke(mapper, record);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int updateByPrimaryKey(Record record) {
-        return -1;
+        try {
+            Method updateByPrimaryKey = mapper.getClass().getDeclaredMethod("updateByPrimaryKey", record.getClass());
+            Object result = updateByPrimaryKey.invoke(mapper, record);
+            return Integer.parseInt(String.valueOf(result));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
     public int deleteByPrimaryKeys(String ids) {
-        return -1;
+        try {
+            if (StringUtils.isBlank(ids)) {
+                return 0;
+            }
+            String[] idArray = ids.split("-");
+            int count = 0;
+            for (String idStr : idArray) {
+                if (StringUtils.isBlank(idStr)) {
+                    continue;
+                }
+                Integer id = Integer.parseInt(idStr);
+                Method deleteByPrimaryKey = mapper.getClass().getDeclaredMethod("deleteByPrimaryKey", id.getClass());
+                Object result = deleteByPrimaryKey.invoke(mapper, id);
+                count += Integer.parseInt(String.valueOf(result));
+            }
+            return count;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return 0;
     };
 
     @Override
