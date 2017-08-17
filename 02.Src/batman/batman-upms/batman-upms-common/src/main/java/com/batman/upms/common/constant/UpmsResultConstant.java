@@ -5,7 +5,7 @@ public enum UpmsResultConstant {
     FAILED(0, "failed"),
     SUCCESS(1, "success"),
 
-    INVALID_LIENGTH(10001, "invalid length"),
+    INVALID_LENGTH(10001, "Invalid length"),
 
     EMPTY_USERNAME(10101, "Username cannot be empty"),
     EMPTY_PASSWORD(10102, "Password cannot be empty"),

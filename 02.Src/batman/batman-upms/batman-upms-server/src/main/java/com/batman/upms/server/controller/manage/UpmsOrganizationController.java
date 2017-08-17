@@ -1,5 +1,8 @@
 package com.batman.upms.server.controller.manage;
 
+import com.baidu.unbiz.fluentvalidator.ComplexResult;
+import com.baidu.unbiz.fluentvalidator.FluentValidator;
+import com.baidu.unbiz.fluentvalidator.ResultCollectors;
 import com.batman.common.base.BaseController;
 import com.batman.upms.dao.model.UpmsOrganization;
 import com.batman.upms.dao.model.UpmsOrganizationExample;
@@ -10,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.UUID;
 
@@ -42,4 +46,5 @@ public class UpmsOrganizationController extends BaseController {
 
         return "manage/organization/index.page";
     }
+
 }

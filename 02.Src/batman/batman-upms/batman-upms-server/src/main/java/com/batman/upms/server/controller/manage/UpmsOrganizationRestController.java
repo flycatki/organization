@@ -1,7 +1,44 @@
 package com.batman.upms.server.controller.manage;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.baidu.unbiz.fluentvalidator.ComplexResult;
+import com.baidu.unbiz.fluentvalidator.FluentValidator;
+import com.baidu.unbiz.fluentvalidator.ResultCollectors;
+import com.batman.common.base.BaseController;
+import com.batman.common.validator.LengthValidator;
+import com.batman.upms.common.constant.UpmsResult;
+import com.batman.upms.common.constant.UpmsResultConstant;
+import com.batman.upms.dao.model.UpmsOrganization;
+import com.batman.upms.rpc.api.UpmsOrganizationService;
+import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class UpmsOrganizationRestController {
+@RequestMapping("/manage/organization")
+public class UpmsOrganizationRestController extends BaseController {
+
+    @Autowired
+    private UpmsOrganizationService upmsOrganizationService;
+
+    @ApiOperation(value = "新增组织")
+    @ResponseBody
+    @RequestMapping(value = "/rest/create", method = RequestMethod.POST)
+    public Object create(@RequestParam(value="organizationName", required=true) String organizationName) {
+
+        UpmsOrganization upmsOrganization = new UpmsOrganization();
+        upmsOrganization.setName(organizationName);
+
+        ComplexResult result = FluentValidator.checkAll()
+                .on(upmsOrganization.getName(), new LengthValidator(1, 20, "名称"))
+                .doValidate()
+                .result(ResultCollectors.toComplex());
+        if (!result.isSuccess()) {
+            return new UpmsResult(UpmsResultConstant.INVALID_LENGTH, result.getErrors());
+        }
+        long time = System.currentTimeMillis();
+        //upmsOrganization.setCtime(time);
+        int count = upmsOrganizationService.insertSelective(upmsOrganization);
+        return new UpmsResult(UpmsResultConstant.SUCCESS, count);
+    }
 }

@@ -371,4 +371,23 @@
             }
         });
     });
+
+    function createSubmit() {
+        $.ajax({
+            type: 'post',
+            url: '${basePath}/manage/organization/rest/create',
+            data: {
+                organizationName: "",
+            },
+            beforeSend: function() {
+                // todo check
+            },
+            success: function(result) {
+
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+    }
 </script>
