@@ -11,7 +11,7 @@
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>角色</h5>
+                    <h5>组织机构</h5>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
@@ -61,53 +61,49 @@
         </div>
         <div class="col-lg-9">
             <div class="ibox">
-                <div class="ibox-content">
-                    <div class="panel blank-panel">
-                        <div class="panel-heading">
-                            <div class="panel-options">
-                                
-                            </div>
-                        </div>
-                        <div class="panel-body">
-
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab-1">
-                                    <div class="form-horizontal">
-                                        <div class="form-group"><label class="col-sm-2 control-label">组织机构名称</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">组织机构类型</label>
-                                            <div class="col-sm-10">
-                                                <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
-                                                    <label for="inlineRadio1"> 部门 </label>
-                                                </div>
-                                                <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="inlineRadio2" value="option2" name="radioInline">
-                                                    <label for="inlineRadio2"> 岗位 </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">状态</label>
-                                            <div class="col-sm-10">
-                                                <div class="checkbox checkbox-primary checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">
-                                                    <label for="inlineCheckbox1"> 可用 </label>
-                                                </div>
-                                                <div class="checkbox checkbox-primary checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
-                                                    <label for="inlineCheckbox2"> 可见 </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">描述</label>
-                                            <div class="col-sm-10"><textarea class="form-control" placeholder="内容" rows="3"></textarea></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="ibox-title">
+                    <span>成员列表</span>
+                    <span class="users-list-pinyin">
+                        <a class="highlight">全部</a>
+                        <a>A</a>
+                        <a>B</a>
+                        <a>C</a>
+                        <a>D</a>
+                        <a>E</a>
+                        <a>F</a>
+                        <a>G</a>
+                        <a class="highlight">H</a>
+                        <a>I</a>
+                        <a>J</a>
+                        <a>K</a>
+                        <a>L</a>
+                        <a>M</a>
+                        <a>M</a>
+                        <a class="highlight">N</a>
+                        <a>O</a>
+                        <a>P</a>
+                        <a>Q</a>
+                        <a>R</a>
+                        <a>S</a>
+                        <a>T</a>
+                        <a>U</a>
+                        <a>V</a>
+                        <a>W</a>
+                        <a>X</a>
+                        <a>Y</a>
+                        <a>Z</a>
+                    </span>
+                    <div class="checkbox checkbox-primary checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label for="inlineCheckbox1"> 含离职 </label>
                     </div>
+                    <div class="checkbox checkbox-primary checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                        <label for="inlineCheckbox2"> 仅管理员 </label>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
                 </div>
             </div>
         </div>

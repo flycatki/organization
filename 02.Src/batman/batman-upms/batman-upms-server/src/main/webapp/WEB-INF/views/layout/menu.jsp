@@ -40,9 +40,9 @@
         <ul class="nav nav-second-level">
             <li><a href="dashboard_2.html">应用管理</a></li>
             <li class="active"><a href="${basePath}/manage/organization/index">组织机构设置</a></li>
-            <li><a href="${basePath}/manage/user/index">角色管理</a></li>
+            <li><a href="#">角色管理</a></li>
             <li><a href="${basePath}/manage/permission/index">权限管理</a></li>
-            <li><a href="dashboard_4_1.html">用户管理</a></li>
+            <li><a href="${basePath}/manage/user/index">用户管理</a></li>
             <li><a href="dashboard_5.html">日志管理 <span class="label label-primary pull-right">NEW</span></a>
             </li>
         </ul>

@@ -8228,6 +8228,31 @@ body.md-skin {
   }
 }
 
+/* user list */
+.users-list-pinyin {
+  margin: 0 10px 0 5px;
+  height: 22px;
+  line-height: 22px;
+  padding: 5px 0;
+  font-size: 0;
+}
+
+.users-list-pinyin a {
+  font-size: 12px;
+  display: inline-block;
+  padding: 0 3px;
+  text-align: center;
+  margin-right: 3px;
+}
+
+.users-list-pinyin a.highlight {
+  background-color: #4fc1e9;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+
 /* bootstrap rewrite */
 label {
   font-weight: 400;
