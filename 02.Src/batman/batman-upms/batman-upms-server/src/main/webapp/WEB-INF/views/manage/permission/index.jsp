@@ -374,7 +374,7 @@
     function createSubmit() {
         $.ajax({
             type: 'post',
-            url: '${basePath}/manage/user/rest/create',
+            url: '${basePath}/manage/permission/rest/create',
             data: {
                 organizationName: "",
             },
