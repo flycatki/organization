@@ -144,28 +144,12 @@
         z-index: 1001;
     }
 </style>
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>组织机构设置</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="#">系统维护</a>
-            </li>
-            <li class="active">
-                <strong>组织机构设置</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
-
-    </div>
-</div>
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-4">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>组织机构</h5>
+                    <h5>权限</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -179,8 +163,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="btn-group">
-                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 部门</button>
-                                <button class="btn btn-primary" type="button"><i class="fa fa-plus"></i> 岗位</button>
+                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 权限</button>
                             </div>
                             <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
                         </div>
@@ -357,11 +340,11 @@
         $('#jstree1').jstree({
             "core" : {
                 'check_callback' : true,
-/*                'data': {
+                'data': {
                     "url": "",
                     "dataType": "json",
                     "cache": "false"
-                }*/
+                }
             },
             'plugins' : [ 'types', 'dnd' ],
             'types' : {
@@ -391,7 +374,7 @@
     function createSubmit() {
         $.ajax({
             type: 'post',
-            url: '${basePath}/manage/organization/rest/create',
+            url: '${basePath}/manage/permission/rest/create',
             data: {
                 organizationName: "",
             },

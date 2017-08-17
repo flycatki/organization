@@ -15,6 +15,11 @@ public class UpmsRealm extends AuthorizingRealm {
     @Autowired
     private UpmsApiService upmsApiService;
 
+    /**
+     * 授权，验证权限用
+     * @param principals
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String username = (String) principals.getPrimaryPrincipal();
