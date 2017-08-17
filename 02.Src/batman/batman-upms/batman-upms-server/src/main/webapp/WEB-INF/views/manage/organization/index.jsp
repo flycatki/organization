@@ -162,7 +162,10 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-lg-6">
-                            <button type="button" class="btn btn-primary" id="showtoast"><i class="fa fa-plus"></i> 添加</button>
+                            <div class="btn-group">
+                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 部门</button>
+                                <button class="btn btn-primary" type="button"><i class="fa fa-plus"></i> 岗位</button>
+                            </div>
                             <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
                         </div>
                         <div class="col-lg-6">

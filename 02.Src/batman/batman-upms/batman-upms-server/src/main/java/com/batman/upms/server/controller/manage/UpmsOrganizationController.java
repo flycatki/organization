@@ -36,7 +36,7 @@ public class UpmsOrganizationController extends BaseController {
 
         criteria.andDeleteflagEqualTo(0)
                 .andIdEqualTo("0001");
-                
+
         upmsOrganizationService.selectByExample(example);*/
 
 
