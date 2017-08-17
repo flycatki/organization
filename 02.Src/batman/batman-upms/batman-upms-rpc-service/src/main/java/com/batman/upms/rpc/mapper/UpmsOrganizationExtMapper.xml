@@ -15,17 +15,13 @@
 
     <select id="selectUpmsWorkByUserid" resultMap="BaseResultMap">
 		select uo.uuid,uo.id,uo.name from upms_organization uo
-		inner join upms_organization_user uou on uou.upms_organization_uuid = uo.uuid
-		inner join upms_user uu on uu.uuid = uou.umps_user_uuid
-		inner join upms_organization_system uos on uos.upms_organization_uuid = uo.uuid
-		inner join upms_system us on us.uuid = uos.upms_system_uuid
+		inner join upms_organization_user uou on uou.upms_organization_uuid = uo.uuid and uou.deleteflag = 0
+		inner join upms_user uu on uu.uuid = uou.umps_user_uuid and uu.deleteflag = 0
+		inner join upms_organization_system uos on uos.upms_organization_uuid = uo.uuid and uos.deleteflag = 0
+		inner join upms_system us on us.uuid = uos.upms_system_uuid and us.deleteflag = 0
 		where uo.isenable = 1 
 		and uu.status = 0
 		and uo.deleteflag = 0 
-		and uou.deleteflag = 0
-		and uu.deleteflag = 0
-		and uos.deleteflag = 0
-		and us.deleteflag = 0
 		and uu.id = #{userId,jdbcType=VARCHAR}
 		and us.uuid = #{system_uuid,jdbcType=VARCHAR}
     </select>

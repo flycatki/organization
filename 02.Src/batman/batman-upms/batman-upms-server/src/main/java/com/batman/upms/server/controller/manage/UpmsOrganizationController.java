@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -45,6 +46,20 @@ public class UpmsOrganizationController extends BaseController {
 
 
         return "manage/organization/index.page";
+    }
+    
+    @RequestMapping(value = "/init", method = RequestMethod.POST)
+    @ResponseBody
+    public Object init(){
+    	UpmsOrganizationExample example = new UpmsOrganizationExample();
+
+        UpmsOrganizationExample.Criteria criteria = example.createCriteria();
+        
+        criteria.andDeleteflagEqualTo(0);
+        
+        List<UpmsOrganization> organizations = upmsOrganizationService.selectByExample(example);
+    	
+    	return organizations;
     }
 
 }
