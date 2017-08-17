@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="btn-group">
-                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 角色</button>
+                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 用户</button>
                             </div>
                             <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
                         </div>
@@ -27,28 +27,31 @@
                     </div>
                     <div id="jstree1">
                         <ul>
-                            <li class="jstree-open">Admin theme
+                            <li class="jstree-open" data-jstree='{"icon":"fa fa-graduation-cap"}'>大连理工大学
                                 <ul>
-                                    <li>css
+                                    <li class="jstree-open" data-jstree='{"icon":"fa fa-home"}'>研究生院
                                         <ul>
-                                            <li data-jstree='"type":"css"}'>animate.css</li>
-                                            <li data-jstree='"type":"css"}'>bootstrap.css</li>
-                                            <li data-jstree='"type":"css"}'>style.css</li>
+                                            <li data-jstree='"type":"css"}'>无岗位信息人员</li>
                                         </ul>
                                     </li>
-                                    <li>email-templates
+                                    <li class="jstree-open" data-jstree='{"icon":"fa fa-home"}'>软件学院
                                         <ul>
-                                            <li data-jstree='"type":"html"}'>action.html</li>
-                                            <li data-jstree='"type":"html"}'>alert.html</li>
-                                            <li data-jstree='"type":"html"}'>billing.html</li>
+                                            <li class="text-navy" data-jstree='{"type":"html", "icon":"fa fa-user"}'>软件学院院领导</li>
+                                            <li class="text-navy" data-jstree='{"type":"html", "icon":"fa fa-users"}'>软件学院综合办公室</li>
+                                            <li data-jstree='{"type":"html", "icon":"fa fa-users"}'>软件学院研究生培养办公室
+                                                <ul>
+                                                    <li data-jstree='{"type":"css", "icon":"fa fa-user"}'>研究生培养办公室主任</li>
+                                                    <li data-jstree='{"type":"css", "icon":"fa fa-user"}'>无岗位信息人员</li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li>fonts
+                                    <li class="" data-jstree='{"icon":"fa fa-home", "opened":true}'>数学科学学院
                                         <ul>
-                                            <li data-jstree='"type":"svg"}'>glyphicons-halflings-regular.eot</li>
-                                            <li data-jstree='"type":"svg"}'>glyphicons-halflings-regular.svg</li>
-                                            <li data-jstree='"type":"svg"}'>glyphicons-halflings-regular.ttf</li>
-                                            <li data-jstree='"type":"svg"}'>glyphicons-halflings-regular.woff</li>
+                                            <li data-jstree='{"type":"svg", "icon":"fa fa-user"}'>数学科学学院领导</li>
+                                            <li class="text-navy" data-jstree='{"type":"svg", "icon":"fa fa-users"}'>数学科学学院办公室</li>
+                                            <li data-jstree='{"type":"svg", "icon":"fa fa-users"}'>计算科学研究所</li>
+                                            <li data-jstree='{"type":"svg", "icon":"fa fa-users"}'>无岗位信息人员</li>
                                         </ul>
                                     </li>
                                 </ul>
