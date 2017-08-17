@@ -144,6 +144,22 @@
         z-index: 1001;
     }
 </style>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>组织机构设置</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">系统维护</a>
+            </li>
+            <li class="active">
+                <strong>组织机构设置</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-4">
@@ -341,11 +357,11 @@
         $('#jstree1').jstree({
             "core" : {
                 'check_callback' : true,
-                'data': {
+/*                'data': {
                     "url": "",
                     "dataType": "json",
                     "cache": "false"
-                }
+                }*/
             },
             'plugins' : [ 'types', 'dnd' ],
             'types' : {
