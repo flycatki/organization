@@ -146,18 +146,10 @@
 </style>
 <div class="wrapper wrapper-content">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>角色</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
@@ -205,17 +197,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="ibox">
                 <div class="ibox-content">
                     <div class="panel blank-panel">
                         <div class="panel-heading">
                             <div class="panel-options">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-book"></i>详细</a></li>
-                                    <li class=""><a href="#tab-2" data-toggle="tab"><i class="fa fa-user"></i>分配用户</a></li>
-                                    <li class=""><a href="#tab-3" data-toggle="tab"><i class="fa fa-user"></i>分配角色</a></li>
-                                </ul>
+                                
                             </div>
                         </div>
                         <div class="panel-body">
@@ -252,31 +240,6 @@
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">描述</label>
                                             <div class="col-sm-10"><textarea class="form-control" placeholder="内容" rows="3"></textarea></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tab-2">
-                                    <div class="sk-fading-circle-wrapper" style="display: none;">
-                                        <div class="sk-fading-circle">
-                                            <div class="sk-circle1 sk-circle"></div>
-                                            <div class="sk-circle2 sk-circle"></div>
-                                            <div class="sk-circle3 sk-circle"></div>
-                                            <div class="sk-circle4 sk-circle"></div>
-                                            <div class="sk-circle5 sk-circle"></div>
-                                            <div class="sk-circle6 sk-circle"></div>
-                                            <div class="sk-circle7 sk-circle"></div>
-                                            <div class="sk-circle8 sk-circle"></div>
-                                            <div class="sk-circle9 sk-circle"></div>
-                                            <div class="sk-circle10 sk-circle"></div>
-                                            <div class="sk-circle11 sk-circle"></div>
-                                            <div class="sk-circle12 sk-circle"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tab-3">
-                                    <div class="transfer">
-                                        <div class="transfer-list" style="width: 250px; height: 300px;">
-
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +300,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#jstree1').jstree({
+       /* $('#jstree1').jstree({
             "core" : {
                 'check_callback' : true,
                 'data': {
@@ -345,7 +308,7 @@
                     "dataType": "json",
                     "cache": "false"
                 }
-            },
+            },*/
             'plugins' : [ 'types', 'dnd' ],
             'types' : {
                 'default' : {
