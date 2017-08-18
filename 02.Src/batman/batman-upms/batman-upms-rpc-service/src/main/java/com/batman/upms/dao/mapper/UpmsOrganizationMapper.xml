@@ -10,6 +10,294 @@
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="isvisible" jdbcType="INTEGER" property="isvisible" />
     <result column="isenable" jdbcType="INTEGER" property="isenable" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uuid, id, name, parent_uuid, organization_type, description, isvisible, isenable, 
+    createtime, deleteflag
+  </sql>
+  <select id="selectByExample" parameterType="com.batman.upms.dao.model.UpmsOrganizationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from upms_organization
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from upms_organization
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from upms_organization
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.batman.upms.dao.model.UpmsOrganizationExample">
+    delete from upms_organization
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.batman.upms.dao.model.UpmsOrganization">
+    insert into upms_organization (uuid, id, name, 
+      parent_uuid, organization_type, description, 
+      isvisible, isenable, createtime, 
+      deleteflag)
+    values (#{uuid,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{parentUuid,jdbcType=VARCHAR}, #{organizationType,jdbcType=TINYINT}, #{description,jdbcType=VARCHAR}, 
+      #{isvisible,jdbcType=INTEGER}, #{isenable,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{deleteflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.batman.upms.dao.model.UpmsOrganization">
+    insert into upms_organization
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="parentUuid != null">
+        parent_uuid,
+      </if>
+      <if test="organizationType != null">
+        organization_type,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="isvisible != null">
+        isvisible,
+      </if>
+      <if test="isenable != null">
+        isenable,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="deleteflag != null">
+        deleteflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUuid != null">
+        #{parentUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationType != null">
+        #{organizationType,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isvisible != null">
+        #{isvisible,jdbcType=INTEGER},
+      </if>
+      <if test="isenable != null">
+        #{isenable,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteflag != null">
+        #{deleteflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.batman.upms.dao.model.UpmsOrganizationExample" resultType="java.lang.Long">
+    select count(*) from upms_organization
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update upms_organization
+    <set>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentUuid != null">
+        parent_uuid = #{record.parentUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationType != null">
+        organization_type = #{record.organizationType,jdbcType=TINYINT},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isvisible != null">
+        isvisible = #{record.isvisible,jdbcType=INTEGER},
+      </if>
+      <if test="record.isenable != null">
+        isenable = #{record.isenable,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteflag != null">
+        deleteflag = #{record.deleteflag,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update upms_organization
+    set uuid = #{record.uuid,jdbcType=VARCHAR},
+      id = #{record.id,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      parent_uuid = #{record.parentUuid,jdbcType=VARCHAR},
+      organization_type = #{record.organizationType,jdbcType=TINYINT},
+      description = #{record.description,jdbcType=VARCHAR},
+      isvisible = #{record.isvisible,jdbcType=INTEGER},
+      isenable = #{record.isenable,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      deleteflag = #{record.deleteflag,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.batman.upms.dao.model.UpmsOrganization">
+    update upms_organization
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUuid != null">
+        parent_uuid = #{parentUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationType != null">
+        organization_type = #{organizationType,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isvisible != null">
+        isvisible = #{isvisible,jdbcType=INTEGER},
+      </if>
+      <if test="isenable != null">
+        isenable = #{isenable,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteflag != null">
+        deleteflag = #{deleteflag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.batman.upms.dao.model.UpmsOrganization">
+    update upms_organization
+    set id = #{id,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      parent_uuid = #{parentUuid,jdbcType=VARCHAR},
+      organization_type = #{organizationType,jdbcType=TINYINT},
+      description = #{description,jdbcType=VARCHAR},
+      isvisible = #{isvisible,jdbcType=INTEGER},
+      isenable = #{isenable,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      deleteflag = #{deleteflag,jdbcType=INTEGER}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+  <resultMap id="BaseResultMap" type="com.batman.upms.dao.model.UpmsOrganization">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_uuid" jdbcType="VARCHAR" property="parentUuid" />
+    <result column="organization_type" jdbcType="TINYINT" property="organizationType" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="isvisible" jdbcType="INTEGER" property="isvisible" />
+    <result column="isenable" jdbcType="INTEGER" property="isenable" />
     <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
   </resultMap>
   <sql id="Example_Where_Clause">
