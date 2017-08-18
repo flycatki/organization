@@ -47,8 +47,8 @@ public class UpmsOrganizationRestController extends BaseController {
         int count = upmsOrganizationService.insertSelective(upmsOrganization);
         return new UpmsResult(UpmsResultConstant.SUCCESS, count);
     }
-    
-    
+
+    @RequiresPermissions("upms:organization:read")
 	@RequestMapping(value = "/rest/init", method = RequestMethod.GET)
 	@ResponseBody
 	public Object init() {

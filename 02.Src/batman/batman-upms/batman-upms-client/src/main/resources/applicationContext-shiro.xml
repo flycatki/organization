@@ -39,9 +39,9 @@
     <bean id="upmsSessionForceLogout" class="com.batman.upms.client.shiro.filter.UpmsSessionForceLogoutFilter"/>
 
     <!-- 用户授权信息Cache, 采用EhCache -->
-    <!--<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml"/>
-    </bean>-->
+    </bean>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -49,7 +49,7 @@
             <list><ref bean="upmsRealm"/></list>
         </property>
         <property name="sessionManager" ref="sessionManager"/>
-        <!--<property name="cacheManager" ref="shiroCacheManager"/>-->
+        <property name="cacheManager" ref="shiroCacheManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
 
