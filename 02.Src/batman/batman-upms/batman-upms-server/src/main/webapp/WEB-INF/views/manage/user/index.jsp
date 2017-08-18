@@ -6,6 +6,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>用户管理</h2>
+		<ol class="breadcrumb">
+			<li><a href="#">系统维护</a></li>
+			<li class="active"><strong>用户管理</strong></li>
+		</ol>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-3">
@@ -15,13 +25,7 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="btn-group">
-                                <button class="btn btn-white" type="button"><i class="fa fa-plus"></i> 用户</button>
-                            </div>
-                            <button type="button" class="btn btn-danger" id="cleartoasts"><i class="fa fa-trash"></i> 删除</button>
-                        </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <input type="text" class="form-control" placeholder="搜索" />
                         </div>
                     </div>
@@ -106,7 +110,9 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
+					<div>
+						<h2 align="center"><i class="fa fa-user"></i>请在tree上点击右键对用户进行操作</h2>
+					</div>
                 </div>
             </div>
         </div>
@@ -159,36 +165,82 @@
 </style>
 
 <script>
-    $(document).ready(function() {
-
-        $('#jstree1').jstree({
-            "core" : {
-                'check_callback' : true,
-            },
-            'plugins' : [ 'types', 'dnd', 'wholerow' ],
-            'types' : {
-                'default' : {
-                    'icon' : 'fa fa-folder'
-                },
-                'html' : {
-                    'icon' : 'fa fa-file-code-o'
-                },
-                'svg' : {
-                    'icon' : 'fa fa-file-picture-o'
-                },
-                'css' : {
-                    'icon' : 'fa fa-file-code-o'
-                },
-                'img' : {
-                    'icon' : 'fa fa-file-image-o'
-                },
-                'js' : {
-                    'icon' : 'fa fa-file-text-o'
-                }
-
-            }
-        });
-    });
+$(document).ready(
+		function() {
+			$.ajax({
+				type : "GET",
+				url : "${basePath}/manage/user/init",
+				dataType : "json",
+				async : false,
+				success : function(result) {
+					var arrays = eval(result);
+					var jsonstr = "[]";
+					var jsonarray = eval('(' + jsonstr + ')');
+					for (var i = 0; i < arrays.length; i++) {
+						var arr = {
+							"id" : arrays[i].uuid,
+							"parent" : arrays[i].parentUuid == "0" ? "#"
+									: arrays[i].parentUuid,
+							"text" : arrays[i].name
+						}
+						jsonarray.push(arr);
+					}
+					$('#jstree1').jstree({
+						"core" : {
+							'check_callback' : true,
+							"data" : jsonarray
+						},
+						'plugins' : [ 'contextmenu','types', 'dnd' ],
+						 'contextmenu':{  
+						        'items':{  
+						            'create':null,  
+						            'rename':null,  
+						            'remove':null,  
+						            'ccp':null,  
+						            '新建用户':{  
+						                'label':'新建用户',  
+						                'action':function(data){  
+						                    
+						                }  
+						            },  
+						            '删除用户':{  
+						                'label':'删除用户',  
+						                'action':function(data){
+						                	
+						                }  
+						            },  
+						            '编辑用户':{  
+						                'label':'编辑用户',  
+						                'action':function(data){
+						                	
+						                } 
+						            }
+						        }
+						   },
+						'types' : {
+							'default' : {
+								'icon' : 'fa fa-folder'
+							},
+							'html' : {
+								'icon' : 'fa fa-file-code-o'
+							},
+							'svg' : {
+								'icon' : 'fa fa-file-picture-o'
+							},
+							'css' : {
+								'icon' : 'fa fa-file-code-o'
+							},
+							'img' : {
+								'icon' : 'fa fa-file-image-o'
+							},
+							'js' : {
+								'icon' : 'fa fa-file-text-o'
+							}
+						}
+					});
+				}
+			});
+		});
 
     function createSubmit() {
         $.ajax({
