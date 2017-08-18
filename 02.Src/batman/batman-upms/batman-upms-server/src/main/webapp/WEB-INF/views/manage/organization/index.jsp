@@ -487,7 +487,7 @@ to {
 			function() {
 				$.ajax({
 					type : "GET",
-					url : "${basePath}/manage/organization/init",
+					url : "${basePath}/manage/organization/rest/init",
 					dataType : "json",
 					async : false,
 					success : function(result) {
