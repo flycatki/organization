@@ -11,7 +11,7 @@
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="uri" jdbcType="VARCHAR" property="uri" />
     <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="operatehistory" jdbcType="VARCHAR" property="operatehistory" />
     <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -73,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uuid, basepath, ip, function, spendtime, starttime, url, uri, username, result, deleteflag
+    uuid, basepath, ip, function, spendtime, starttime, url, uri, username, operatehistory, 
+    deleteflag
   </sql>
   <select id="selectByExample" parameterType="com.batman.upms.dao.model.UpmsLogExample" resultMap="BaseResultMap">
     select
@@ -109,11 +110,11 @@
     insert into upms_log (uuid, basepath, ip, 
       function, spendtime, starttime, 
       url, uri, username, 
-      result, deleteflag)
+      operatehistory, deleteflag)
     values (#{uuid,jdbcType=VARCHAR}, #{basepath,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
       #{function,jdbcType=VARCHAR}, #{spendtime,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{result,jdbcType=VARCHAR}, #{deleteflag,jdbcType=INTEGER})
+      #{operatehistory,jdbcType=VARCHAR}, #{deleteflag,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.batman.upms.dao.model.UpmsLog">
     insert into upms_log
@@ -145,8 +146,8 @@
       <if test="username != null">
         username,
       </if>
-      <if test="result != null">
-        result,
+      <if test="operatehistory != null">
+        operatehistory,
       </if>
       <if test="deleteflag != null">
         deleteflag,
@@ -180,8 +181,8 @@
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="result != null">
-        #{result,jdbcType=VARCHAR},
+      <if test="operatehistory != null">
+        #{operatehistory,jdbcType=VARCHAR},
       </if>
       <if test="deleteflag != null">
         #{deleteflag,jdbcType=INTEGER},
@@ -224,8 +225,8 @@
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.result != null">
-        result = #{record.result,jdbcType=VARCHAR},
+      <if test="record.operatehistory != null">
+        operatehistory = #{record.operatehistory,jdbcType=VARCHAR},
       </if>
       <if test="record.deleteflag != null">
         deleteflag = #{record.deleteflag,jdbcType=INTEGER},
@@ -246,7 +247,7 @@
       url = #{record.url,jdbcType=VARCHAR},
       uri = #{record.uri,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
-      result = #{record.result,jdbcType=VARCHAR},
+      operatehistory = #{record.operatehistory,jdbcType=VARCHAR},
       deleteflag = #{record.deleteflag,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -279,8 +280,8 @@
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="result != null">
-        result = #{result,jdbcType=VARCHAR},
+      <if test="operatehistory != null">
+        operatehistory = #{operatehistory,jdbcType=VARCHAR},
       </if>
       <if test="deleteflag != null">
         deleteflag = #{deleteflag,jdbcType=INTEGER},
@@ -298,7 +299,7 @@
       url = #{url,jdbcType=VARCHAR},
       uri = #{uri,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
-      result = #{result,jdbcType=VARCHAR},
+      operatehistory = #{operatehistory,jdbcType=VARCHAR},
       deleteflag = #{deleteflag,jdbcType=INTEGER}
     where uuid = #{uuid,jdbcType=VARCHAR}
   </update>

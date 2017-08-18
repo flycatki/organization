@@ -737,73 +737,73 @@ public class UpmsLogExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andResultIsNull() {
-            addCriterion("result is null");
+        public Criteria andOperatehistoryIsNull() {
+            addCriterion("operatehistory is null");
             return (Criteria) this;
         }
 
-        public Criteria andResultIsNotNull() {
-            addCriterion("result is not null");
+        public Criteria andOperatehistoryIsNotNull() {
+            addCriterion("operatehistory is not null");
             return (Criteria) this;
         }
 
-        public Criteria andResultEqualTo(String value) {
-            addCriterion("result =", value, "result");
+        public Criteria andOperatehistoryEqualTo(String value) {
+            addCriterion("operatehistory =", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotEqualTo(String value) {
-            addCriterion("result <>", value, "result");
+        public Criteria andOperatehistoryNotEqualTo(String value) {
+            addCriterion("operatehistory <>", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultGreaterThan(String value) {
-            addCriterion("result >", value, "result");
+        public Criteria andOperatehistoryGreaterThan(String value) {
+            addCriterion("operatehistory >", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultGreaterThanOrEqualTo(String value) {
-            addCriterion("result >=", value, "result");
+        public Criteria andOperatehistoryGreaterThanOrEqualTo(String value) {
+            addCriterion("operatehistory >=", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultLessThan(String value) {
-            addCriterion("result <", value, "result");
+        public Criteria andOperatehistoryLessThan(String value) {
+            addCriterion("operatehistory <", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultLessThanOrEqualTo(String value) {
-            addCriterion("result <=", value, "result");
+        public Criteria andOperatehistoryLessThanOrEqualTo(String value) {
+            addCriterion("operatehistory <=", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultLike(String value) {
-            addCriterion("result like", value, "result");
+        public Criteria andOperatehistoryLike(String value) {
+            addCriterion("operatehistory like", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotLike(String value) {
-            addCriterion("result not like", value, "result");
+        public Criteria andOperatehistoryNotLike(String value) {
+            addCriterion("operatehistory not like", value, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultIn(List<String> values) {
-            addCriterion("result in", values, "result");
+        public Criteria andOperatehistoryIn(List<String> values) {
+            addCriterion("operatehistory in", values, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotIn(List<String> values) {
-            addCriterion("result not in", values, "result");
+        public Criteria andOperatehistoryNotIn(List<String> values) {
+            addCriterion("operatehistory not in", values, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultBetween(String value1, String value2) {
-            addCriterion("result between", value1, value2, "result");
+        public Criteria andOperatehistoryBetween(String value1, String value2) {
+            addCriterion("operatehistory between", value1, value2, "operatehistory");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotBetween(String value1, String value2) {
-            addCriterion("result not between", value1, value2, "result");
+        public Criteria andOperatehistoryNotBetween(String value1, String value2) {
+            addCriterion("operatehistory not between", value1, value2, "operatehistory");
             return (Criteria) this;
         }
 
