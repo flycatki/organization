@@ -23,6 +23,7 @@ public class UpmsOrganizationRestController extends BaseController {
 
     @ApiOperation(value = "新增组织")
     @ResponseBody
+    @RequiresPermissions("upms:organization:create")
     @RequestMapping(value = "/rest/create", method = RequestMethod.POST)
     public Object create(@RequestParam(value="organizationName", required=true) String organizationName) {
 
