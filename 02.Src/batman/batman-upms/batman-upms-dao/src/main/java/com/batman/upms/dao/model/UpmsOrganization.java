@@ -1,6 +1,7 @@
 package com.batman.upms.dao.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class UpmsOrganization implements Serializable {
     /**
@@ -58,6 +59,13 @@ public class UpmsOrganization implements Serializable {
      * @mbg.generated
      */
     private Integer isenable;
+
+    /**
+     * 创建时间
+     *
+     * @mbg.generated
+     */
+    private Date createtime;
 
     /**
      * 逻辑删除状态： 0 正常 ， 1 删除 。 
@@ -132,6 +140,14 @@ public class UpmsOrganization implements Serializable {
         this.isenable = isenable;
     }
 
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
     public Integer getDeleteflag() {
         return deleteflag;
     }
@@ -154,6 +170,7 @@ public class UpmsOrganization implements Serializable {
         sb.append(", description=").append(description);
         sb.append(", isvisible=").append(isvisible);
         sb.append(", isenable=").append(isenable);
+        sb.append(", createtime=").append(createtime);
         sb.append(", deleteflag=").append(deleteflag);
         sb.append("]");
         return sb.toString();
@@ -179,6 +196,7 @@ public class UpmsOrganization implements Serializable {
             && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getIsvisible() == null ? other.getIsvisible() == null : this.getIsvisible().equals(other.getIsvisible()))
             && (this.getIsenable() == null ? other.getIsenable() == null : this.getIsenable().equals(other.getIsenable()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getDeleteflag() == null ? other.getDeleteflag() == null : this.getDeleteflag().equals(other.getDeleteflag()));
     }
 
@@ -194,6 +212,7 @@ public class UpmsOrganization implements Serializable {
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getIsvisible() == null) ? 0 : getIsvisible().hashCode());
         result = prime * result + ((getIsenable() == null) ? 0 : getIsenable().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getDeleteflag() == null) ? 0 : getDeleteflag().hashCode());
         return result;
     }

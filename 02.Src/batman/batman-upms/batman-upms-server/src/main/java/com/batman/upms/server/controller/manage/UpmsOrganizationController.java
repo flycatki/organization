@@ -52,34 +52,4 @@ public class UpmsOrganizationController extends BaseController {
 		return "manage/organization/index.page";
 	}
 
-	@RequestMapping(value = "/init", method = RequestMethod.GET)
-	@ResponseBody
-	public Object init() {
-//		UpmsOrganizationExample example = new UpmsOrganizationExample();
-//
-//		UpmsOrganizationExample.Criteria criteria = example.createCriteria();
-//
-//		criteria.andDeleteflagEqualTo(0);
-
-		// List<UpmsOrganization> organizations =
-		// upmsOrganizationService.selectByExample(example);
-
-		List<UpmsOrganization> organizations = new ArrayList<UpmsOrganization>();
-
-		for (int i = 1; i < 6; i++) {
-			UpmsOrganization upmsOrganization = new UpmsOrganization();
-			
-			String s1 = String.valueOf(i);
-			String s2 = String.valueOf(i - 1);
-			upmsOrganization.setUuid(s1);
-			upmsOrganization.setName("test" + i);
-			upmsOrganization.setParentUuid(s2);
-			organizations.add(upmsOrganization);
-		}
-		
-
-
-		return organizations;
-	}
-
 }
