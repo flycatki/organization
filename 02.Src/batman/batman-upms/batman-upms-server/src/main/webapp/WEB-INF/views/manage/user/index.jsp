@@ -48,7 +48,7 @@
                                     </li>
                                     <li class="" data-jstree='{"icon":"fa fa-home", "opened":true}'>数学科学学院
                                         <ul>
-                                            <li data-jstree='{"type":"svg", "icon":"fa fa-user"}'>数学科学学院领导</li>
+                                            <li data-jstree='{"type":"svg", "icon":"fa fa-user"}'>数学科学学院领导<span>10</span></li>
                                             <li class="text-navy" data-jstree='{"type":"svg", "icon":"fa fa-users"}'>数学科学学院办公室</li>
                                             <li data-jstree='{"type":"svg", "icon":"fa fa-users"}'>计算科学研究所</li>
                                             <li data-jstree='{"type":"svg", "icon":"fa fa-users"}'>无岗位信息人员</li>
@@ -165,7 +165,7 @@
             "core" : {
                 'check_callback' : true,
             },
-            'plugins' : [ 'types', 'dnd' ],
+            'plugins' : [ 'types', 'dnd', 'wholerow' ],
             'types' : {
                 'default' : {
                     'icon' : 'fa fa-folder'
