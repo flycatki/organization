@@ -6,3 +6,5 @@
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/iCheck/icheck.min.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/plugins/toastr/toastr.min.js"></script>
