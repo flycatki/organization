@@ -110,8 +110,18 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-					<div>
-						<h2 align="center"><i class="fa fa-user"></i>请在tree上点击右键对用户进行操作</h2>
+                	<div class="information-border">
+						<div class="information">
+							<div class="title">
+								<p><i class="fa fa-user"></i></p>
+								<h4><strong>用户管理使用说明</strong></h4>	
+							</div>
+			                <ul>
+			                	<li><p>将鼠标移至左边所想操作的节点上</p></li>
+			                	<li><p>点击鼠标右键出现操作信息</p></li>
+			                	<li><p>选中操作信息实行具体操作</p></li>
+			                </ul>
+						</div>
 					</div>
                 </div>
             </div>
@@ -160,8 +170,7 @@
     #jstree1 {
         margin-top: 20px;
     }
-
-
+    
 </style>
 
 <script>
