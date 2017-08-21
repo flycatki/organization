@@ -55,7 +55,7 @@
 		</div>
 		<div class="col-lg-8">
 			<div id="ibox1" class="ibox" style="display:none">
-				<div class="ibox-title">增加组织机构</div>
+				<div class="ibox-title">添加岗位</div>
 				<div class="ibox-content">
 					<div class="form-horizontal">
 						<div class="form-group">
@@ -98,16 +98,16 @@
 								<textarea class="form-control" placeholder="内容" rows="3"></textarea>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="ibox-footer text-center">
-					<div class="btn-group">
-						<button class="btn btn-green" type="button">
-							<i class="fa fa-plus"></i> 增加
-						</button>
-						<button class="btn btn-white" type="button">
-							<i class="fa fa-undo"></i> 返回
-						</button>
+						<div class="form-group">
+							<div class="col-sm-2 col-sm-offset-2">
+								<button class="btn btn-white" type="button">
+									<i class="fa fa-undo"></i> 取消
+								</button>
+								<button class="btn btn-primary" type="button">
+									<i class="fa fa-plus"></i> 添加
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
