@@ -1,6 +1,7 @@
 package com.batman.common.base;
 
 import com.batman.common.util.SpringContextUtil;
+import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 
@@ -127,8 +128,71 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 
     @Override
     public List<Record> SelectByExampleWithBLOBsForStartPage(Example example, Integer pageNum, Integer pageSize) {
+        try {
+            Method selectByExampleWithBLOBs = mapper.getClass().getDeclaredMethod("selectByExampleWithBLOBs", example.getClass());
+            PageHelper.startPage(pageNum, pageSize, false);
+            Object result = selectByExampleWithBLOBs.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         return null;
     };
+
+    @Override
+    public List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize) {
+        try {
+            Method selectByExample = mapper.getClass().getDeclaredMethod("selectByExample", example.getClass());
+            PageHelper.startPage(pageNum, pageSize, false);
+            Object result = selectByExample.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Record> selectByExampleWithBLOBsForOffsetPage(Example example, Integer offset, Integer limit) {
+        try {
+            Method selectByExampleWithBLOBs = mapper.getClass().getDeclaredMethod("selectByExampleWithBLOBs", example.getClass());
+            PageHelper.offsetPage(offset, limit, false);
+            Object result = selectByExampleWithBLOBs.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Record> selectByExampleForOffsetPage(Example example, Integer offset, Integer limit) {
+        try {
+            Method selectByExample = mapper.getClass().getDeclaredMethod("selectByExample", example.getClass());
+            PageHelper.offsetPage(offset, limit, false);
+            Object result = selectByExample.invoke(mapper, example);
+            return (List<Record>) result;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public Record selectFirstByExample(Example example) {
