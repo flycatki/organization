@@ -32,6 +32,9 @@
     <!-- SweetAlert -->
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
+    <!-- parsley -->
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/parsley/parsley.css" rel="stylesheet">
+
     <link href="${basePath}/resources/batman-admin-ui/css/animate.css" rel="stylesheet">
     <link href="${basePath}/resources/batman-admin-ui/css/style.css" rel="stylesheet">
 
