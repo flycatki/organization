@@ -57,6 +57,7 @@ $(document).ready(function() {
 							//false表示 create 这一项可以使用; true表示不能使用
 							'_disabled': false,
 							'label': '添加岗位',
+							'icon': 'fa fa-plus',
 							//点击Create这一项触发该方法,这理还是蛮有用的
 							'action': function(data) {
 								//增加组织机构div显示

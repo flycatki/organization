@@ -19,7 +19,7 @@
 </div>
 <div class="wrapper wrapper-content">
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-3">
 			<div class="ibox float-e-margins">
 				<div class="ibox-title">
 					<h5>组织机构</h5>
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-8">
+		<div class="col-lg-9">
 			<div id="ibox1" class="ibox" style="display:none">
 				<div class="ibox-title">添加岗位</div>
 				<div class="ibox-content">
