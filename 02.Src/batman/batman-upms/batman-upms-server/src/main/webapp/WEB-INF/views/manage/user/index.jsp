@@ -110,17 +110,11 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                	<div class="information-border">
-						<div class="information">
-							<div class="title">
-								<p><i class="fa fa-user"></i></p>
-								<h4><strong>用户管理使用说明</strong></h4>	
-							</div>
-			                <ul>
-			                	<li><p>将鼠标移至左边所想操作的节点上</p></li>
-			                	<li><p>点击鼠标右键出现操作信息</p></li>
-			                	<li><p>选中操作信息实行具体操作</p></li>
-			                </ul>
+                	<div class="nodata-holder">
+						<div class="">
+                            <i class="fa fa-user ico"></i>
+                            <h4><strong>您还没有添加用户哦！</strong></h4>
+                            <p>如何添加用户：鼠标右键岗位树，点击添加用户。</p>
 						</div>
 					</div>
                 </div>

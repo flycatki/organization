@@ -8252,6 +8252,21 @@ body.md-skin {
   border-radius: 2px;
 }
 
+/* no data holder */
+.nodata-holder {
+  text-align: center;
+}
+
+.nodata-holder .ico {
+  font-size: 72pt;
+  color: #999;
+}
+
+.nodata-holder > div > h4 {
+  color: #666;
+  line-height: 24px;
+  font-size: 16pt;
+}
 
 /* bootstrap rewrite */
 label {
