@@ -8,3 +8,4 @@
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/iCheck/icheck.min.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/toastr/toastr.min.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/plugins/parsley/parsley.min.js"></script>
