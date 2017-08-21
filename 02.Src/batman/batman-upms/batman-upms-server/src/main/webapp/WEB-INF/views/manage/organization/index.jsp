@@ -5,7 +5,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
-<link type="text/css" href="${basePath}/resources/batman-admin-ui/css/style.css" rel="stylesheet">
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <input type="hidden" id=basepath value="${basePath}">
 <div class="row wrapper border-bottom white-bg page-heading">
@@ -121,7 +120,7 @@
 	</div>
 </div>
 
-<script src="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/jstree.min.js"></script>
+
 <script src="${basePath}/resources/js/organization.js"></script>
 
 
