@@ -98,6 +98,7 @@
 								<textarea class="form-control" placeholder="内容" rows="3"></textarea>
 							</div>
 						</div>
+						<div class="hr-line-dashed"></div>
 						<div class="form-group">
 							<div class="col-sm-2 col-sm-offset-2">
 								<button class="btn btn-white" type="button">
