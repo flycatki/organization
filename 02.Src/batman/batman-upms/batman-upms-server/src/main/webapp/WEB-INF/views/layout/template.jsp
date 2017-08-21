@@ -23,11 +23,14 @@
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/style.min.css" rel="stylesheet">
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
-<%--    <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">--%>
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <!-- SweetAlert -->
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
     <link href="${basePath}/resources/batman-admin-ui/css/animate.css" rel="stylesheet">
     <link href="${basePath}/resources/batman-admin-ui/css/style.css" rel="stylesheet">

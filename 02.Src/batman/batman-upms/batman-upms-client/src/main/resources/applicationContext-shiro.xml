@@ -38,17 +38,29 @@
     <!-- 强制退出会话过滤器 -->
     <bean id="upmsSessionForceLogout" class="com.batman.upms.client.shiro.filter.UpmsSessionForceLogoutFilter"/>
 
+    <!-- 用户授权信息Cache, 采用EhCache -->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml"/>
+    </bean>
+
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realms">
             <list><ref bean="upmsRealm"/></list>
         </property>
         <property name="sessionManager" ref="sessionManager"/>
+        <property name="cacheManager" ref="shiroCacheManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
 
     <!-- realm实现，继承自AuthorizingRealm -->
-    <bean id="upmsRealm" class="com.batman.upms.client.shiro.realm.UpmsRealm"></bean>
+    <bean id="upmsRealm" class="com.batman.upms.client.shiro.realm.UpmsRealm">
+        <property name="cachingEnabled" value="true" />
+        <property name="authenticationCachingEnabled" value="true" />
+        <property name="authenticationCacheName" value="authenticationCache" />
+        <property name="authorizationCachingEnabled" value="true" />
+        <property name="authorizationCacheName" value="authorizationCache" />
+    </bean>
 
     <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">

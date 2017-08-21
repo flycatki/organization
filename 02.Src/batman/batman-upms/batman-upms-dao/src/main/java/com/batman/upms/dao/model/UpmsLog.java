@@ -67,11 +67,11 @@ public class UpmsLog implements Serializable {
     private String username;
 
     /**
-     * 操作结果
+     * 操作历史
      *
      * @mbg.generated
      */
-    private String result;
+    private String operatehistory;
 
     /**
      * 逻辑删除状态： 0 正常 ， 1 删除 。 
@@ -154,12 +154,12 @@ public class UpmsLog implements Serializable {
         this.username = username;
     }
 
-    public String getResult() {
-        return result;
+    public String getOperatehistory() {
+        return operatehistory;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setOperatehistory(String operatehistory) {
+        this.operatehistory = operatehistory;
     }
 
     public Integer getDeleteflag() {
@@ -185,7 +185,7 @@ public class UpmsLog implements Serializable {
         sb.append(", url=").append(url);
         sb.append(", uri=").append(uri);
         sb.append(", username=").append(username);
-        sb.append(", result=").append(result);
+        sb.append(", operatehistory=").append(operatehistory);
         sb.append(", deleteflag=").append(deleteflag);
         sb.append("]");
         return sb.toString();
@@ -212,7 +212,7 @@ public class UpmsLog implements Serializable {
             && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getUri() == null ? other.getUri() == null : this.getUri().equals(other.getUri()))
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getResult() == null ? other.getResult() == null : this.getResult().equals(other.getResult()))
+            && (this.getOperatehistory() == null ? other.getOperatehistory() == null : this.getOperatehistory().equals(other.getOperatehistory()))
             && (this.getDeleteflag() == null ? other.getDeleteflag() == null : this.getDeleteflag().equals(other.getDeleteflag()));
     }
 
@@ -229,7 +229,7 @@ public class UpmsLog implements Serializable {
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getUri() == null) ? 0 : getUri().hashCode());
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
-        result = prime * result + ((getResult() == null) ? 0 : getResult().hashCode());
+        result = prime * result + ((getOperatehistory() == null) ? 0 : getOperatehistory().hashCode());
         result = prime * result + ((getDeleteflag() == null) ? 0 : getDeleteflag().hashCode());
         return result;
     }
