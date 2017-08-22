@@ -16,7 +16,7 @@ $(document).ready(function() {
 					"text": arrays[i].name
 				}
 				jsonarray.push(arr);
-			}
+			};
 			$('#jstree1').jstree({
 				"core": {
 					//激活删除节点功能
@@ -167,20 +167,51 @@ function createSubmit() {
 		type: 'post',
 		url: basepath + '/manage/organization/rest/create',
 		data: {
-			organizationName: "TestMain",
+			organizationName: $("#organizationName").val(),
 			parentUuid : $("#parentUuid").val()
 		},
 		beforeSend: function() {
 			// todo check
 		},
 		success: function(result) {
-			alert(result);
+			alert(result.message);
+			refresh();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 
 		}
 	});
 }
+
+function refresh(){
+	var tree = $('#jstree1');  
+	tree.jstree({'core':{data:null}});  
+	    	 
+	$.ajax({
+		type: "GET",
+		url: basepath + "/manage/organization/rest/init",
+		dataType: "json",
+		success: function(result) {
+			var arrays = eval(result);
+			var jsonstr = "[]";
+			var jsonarray = eval('(' + jsonstr + ')');
+			for(var i = 0; i < arrays.length; i++) {
+				var arr = {
+					"id": arrays[i].uuid,
+					"parent": arrays[i].parentUuid == null ? "#" : arrays[i].parentUuid,
+					"text": arrays[i].name
+				}
+				jsonarray.push(arr);
+			};
+			tree.jstree(true).settings.core.data = jsonarray;  
+			tree.jstree(true).refresh(); 
+		}	
+		
+	});
+	 
+	//console.debug("reloaded.");  
+	}  
+
 
 $("#add").click(function() {
 	createSubmit();
