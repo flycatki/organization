@@ -32,8 +32,8 @@
     <!-- SweetAlert -->
     <link href="${basePath}/resources/batman-admin-ui/js/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
-    <!-- parsley -->
-    <link href="${basePath}/resources/batman-admin-ui/js/plugins/parsley/parsley.css" rel="stylesheet">
+    <!-- select2 -->
+    <link href="${basePath}/resources/batman-admin-ui/js/plugins/select2/select2.min.css" rel="stylesheet">
 
     <link href="${basePath}/resources/batman-admin-ui/css/animate.css" rel="stylesheet">
     <link href="${basePath}/resources/batman-admin-ui/css/style.css" rel="stylesheet">
@@ -177,6 +177,7 @@
         <div class="footer">
             <tiles:insertAttribute name="footer" />
         </div>
+        <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
     </div>
 
     <!-- ./wrapper -->

@@ -11,3 +11,5 @@
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/parsley/parsley.min.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/jstree.min.js"></script>
 <script src="${basePath}/resources/batman-admin-ui/js/plugins/jsTree/jstree.num.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/plugins/select2/select2.full.min.js"></script>
+<script src="${basePath}/resources/batman-admin-ui/js/boot.js"></script>

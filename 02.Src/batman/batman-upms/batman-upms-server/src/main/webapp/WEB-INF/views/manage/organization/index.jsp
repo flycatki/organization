@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
 <input type="hidden" id=basepath value="${basePath}">
 <div class="row wrapper border-bottom white-bg page-heading">
