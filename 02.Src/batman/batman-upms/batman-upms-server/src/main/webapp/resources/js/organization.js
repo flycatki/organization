@@ -1,5 +1,6 @@
+var basepath = $("#basepath").val();
+
 $(document).ready(function() {
-	var basepath = $("#basepath").val();
 	$.ajax({
 		type: "GET",
 		url: basepath + "/manage/organization/rest/init",
@@ -11,7 +12,7 @@ $(document).ready(function() {
 			for(var i = 0; i < arrays.length; i++) {
 				var arr = {
 					"id": arrays[i].uuid,
-					"parent": arrays[i].parentUuid == "0" ? "#" : arrays[i].parentUuid,
+					"parent": arrays[i].parentUuid == null ? "#" : arrays[i].parentUuid,
 					"text": arrays[i].name
 				}
 				jsonarray.push(arr);
@@ -69,6 +70,8 @@ $(document).ready(function() {
 								//获得当前节点,可以拿到当前节点所有属性
 								var inst = $.jstree.reference(data.reference),
 									obj = inst.get_node(data.reference);
+								
+								$("#parentUuid").val(obj.id);
 								//新加节点,以下三行代码注释掉就不会添加节点
 								/* inst.create_node(obj, {},"last",function(new_node) {
 								    //新加节点后触发 重命名方法,即 创建节点完成后可以立即重命名节点
@@ -162,9 +165,10 @@ $(document).ready(function() {
 function createSubmit() {
 	$.ajax({
 		type: 'post',
-		url: '${basePath}/manage/organization/rest/create',
+		url: basepath + '/manage/organization/rest/create',
 		data: {
-			organizationName: "",
+			organizationName: "TestMain",
+			parentUuid : $("#parentUuid").val()
 		},
 		beforeSend: function() {
 			// todo check
@@ -178,6 +182,6 @@ function createSubmit() {
 	});
 }
 
-$("#bumen").click(function() {
+$("#add").click(function() {
 	createSubmit();
 });

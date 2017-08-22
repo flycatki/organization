@@ -61,6 +61,7 @@
 							<label class="col-sm-2 control-label">组织机构名称</label>
 							<div class="col-sm-10">
 								<input id="organizationName" type="text" class="form-control">
+								<input id="parentUuid" type="hidden">
 							</div>
 						</div>
 						<div class="form-group">
@@ -103,7 +104,7 @@
 								<button class="btn btn-white" type="button">
 									<i class="fa fa-undo"></i> 取消
 								</button>
-								<button class="btn btn-primary" type="button">
+								<button id="add" class="btn btn-primary" type="button">
 									<i class="fa fa-plus"></i> 添加
 								</button>
 							</div>
