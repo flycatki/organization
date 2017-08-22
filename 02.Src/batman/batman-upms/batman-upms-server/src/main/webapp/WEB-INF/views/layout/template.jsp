@@ -173,11 +173,11 @@
                 </ul>
             </nav>
         </div>
+        <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
         <tiles:insertAttribute name="body" />
         <div class="footer">
             <tiles:insertAttribute name="footer" />
         </div>
-        <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
     </div>
 
     <!-- ./wrapper -->
