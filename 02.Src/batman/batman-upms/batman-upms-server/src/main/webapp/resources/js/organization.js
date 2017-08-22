@@ -1,28 +1,24 @@
 var basepath = $("#basepath").val();
-
+var json;
 $(document).ready(function() {
 	$.ajax({
 		type: "GET",
 		url: basepath + "/manage/organization/rest/init",
 		dataType: "json",
 		success: function(result) {
-			var arrays = eval(result);
-			var jsonstr = "[]";
-			var jsonarray = eval('(' + jsonstr + ')');
-			for(var i = 0; i < arrays.length; i++) {
-				var arr = {
-					"id": arrays[i].uuid,
-					"parent": arrays[i].parentUuid == null ? "#" : arrays[i].parentUuid,
-					"text": arrays[i].name
-				}
-				jsonarray.push(arr);
-			};
+			var data = [
+		       { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "svg" },
+		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
+		       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
+		       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" },
+		    ];
+			json = data;
 			$('#jstree1').jstree({
 				"core": {
 					//激活删除节点功能
 					'check_callback': true,
 					//用于生成tree的数据
-					"data": jsonarray
+					"data": data
 				},
 				'plugins': ['types', 'dnd', 'contextmenu'],
 				'types': {
@@ -175,7 +171,7 @@ function createSubmit() {
 		},
 		success: function(result) {
 			alert(result.message);
-			refresh();
+			refreshTree();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 
@@ -183,34 +179,20 @@ function createSubmit() {
 	});
 }
 
-function refresh(){
+function refreshTree(){
 	var tree = $('#jstree1');  
 	tree.jstree({'core':{data:null}});  
-	    	 
-	$.ajax({
-		type: "GET",
-		url: basepath + "/manage/organization/rest/init",
-		dataType: "json",
-		success: function(result) {
-			var arrays = eval(result);
-			var jsonstr = "[]";
-			var jsonarray = eval('(' + jsonstr + ')');
-			for(var i = 0; i < arrays.length; i++) {
-				var arr = {
-					"id": arrays[i].uuid,
-					"parent": arrays[i].parentUuid == null ? "#" : arrays[i].parentUuid,
-					"text": arrays[i].name
-				}
-				jsonarray.push(arr);
-			};
-			tree.jstree(true).settings.core.data = jsonarray;  
-			tree.jstree(true).refresh(); 
-		}	
+
+	var obj = { "id" : "ajson5", "parent" : "ajson2", "text" : "Child 3" }
+	json.push(obj);
+	var node = tree.jstree("get_node","ajson2");
+
+	tree.jstree(true).settings.core.data = json;  
+	tree.jstree(true).refresh_node(node); 
+	
+}	
 		
-	});
-	 
-	//console.debug("reloaded.");  
-	}  
+ 
 
 
 $("#add").click(function() {

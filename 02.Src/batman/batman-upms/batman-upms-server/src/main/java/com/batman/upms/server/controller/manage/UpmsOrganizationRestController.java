@@ -65,6 +65,6 @@ public class UpmsOrganizationRestController extends BaseController {
 
 		List<UpmsOrganization> organizations = upmsOrganizationService.selectByExample(example);
 
-		return organizations;
+		return new UpmsResult(UpmsResultConstant.SUCCESS, organizations);
 	}
 }
