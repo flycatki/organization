@@ -28,7 +28,7 @@
             </ul>
         </div>
         <div class="logo-element">
-            IN+
+            BA+
         </div>
     </li>
     <li class="active">
