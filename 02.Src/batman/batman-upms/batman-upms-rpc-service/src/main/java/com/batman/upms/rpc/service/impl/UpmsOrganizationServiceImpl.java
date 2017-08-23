@@ -5,6 +5,7 @@ import com.batman.common.base.BaseServiceImpl;
 import com.batman.upms.dao.mapper.UpmsOrganizationMapper;
 import com.batman.upms.dao.model.UpmsOrganization;
 import com.batman.upms.dao.model.UpmsOrganizationExample;
+import com.batman.upms.dao.model.UpmsOrganizationExtForTree;
 import com.batman.upms.rpc.api.UpmsOrganizationService;
 import com.batman.upms.rpc.mapper.UpmsOrganizationExtMapper;
 import org.slf4j.Logger;
@@ -34,6 +35,10 @@ private static Logger _log = LoggerFactory.getLogger(UpmsOrganizationServiceImpl
 
     public List<UpmsOrganization> selectUpmsWorkByUserid(String userId,String system_uuid) {
         return upmsOrganizationExtMapper.selectUpmsWorkByUserid(userId,system_uuid);
+    }
+    
+    public List<UpmsOrganizationExtForTree> selectOrganizationInfoForTree(UpmsOrganization upmsOrganization){
+    	return upmsOrganizationExtMapper.selectOrganizationInfoForTree(upmsOrganization);
     }
 
 }

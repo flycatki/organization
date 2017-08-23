@@ -12,8 +12,21 @@
         <result column="isenable" jdbcType="INTEGER" property="isenable" />
         <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
     </resultMap>
+    
+    <resultMap id="ResultMapForTree" type="com.batman.upms.dao.model.UpmsOrganizationExtForTree">
+        <id column="uuid" jdbcType="VARCHAR" property="id" />
+        <result column="id" jdbcType="VARCHAR" property="organizationCode" />
+        <result column="name" jdbcType="VARCHAR" property="text" />
+        <result column="parent_uuid" jdbcType="VARCHAR" property="parent" />
+        <result column="organization_type" jdbcType="TINYINT" property="type" />
+        <!-- <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="isvisible" jdbcType="VARCHAR" property="isvisible" />
+        <result column="isenable" jdbcType="VARCHAR" property="disabled" />
+        <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
+        <result jdbcType="VARCHAR" property="opened" /> -->
+    </resultMap>
 
-    <select id="selectUpmsWorkByUserid" resultMap="BaseResultMap">
+    <select id="selectUpmsWorkByUserid" resultMap="ResultMapForTree">
 		select uo.uuid,uo.id,uo.name from upms_organization uo
 		inner join upms_organization_user uou on uou.upms_organization_uuid = uo.uuid and uou.deleteflag = 0
 		inner join upms_user uu on uu.uuid = uou.umps_user_uuid and uu.deleteflag = 0
@@ -24,5 +37,26 @@
 		and uo.deleteflag = 0 
 		and uu.id = #{userId,jdbcType=VARCHAR}
 		and us.uuid = #{system_uuid,jdbcType=VARCHAR}
+    </select>
+    
+    
+   	<select id="selectOrganizationInfoForTree" resultMap="BaseResultMap">
+		SELECT 
+	    uuid AS id,
+	    parent_uuid AS parent,
+	    id as organizationCode,
+	    name AS text,
+	    organization_type AS type,
+	    CASE
+	        WHEN isenable = 1 THEN 'false'
+	        ELSE 'true'
+	    END AS disabled,
+	    CASE
+	        WHEN parent_uuid is NULL THEN 'true'
+	        ELSE 'false'
+	    END AS opened
+		FROM
+	    upms_organization
+	    WHERE deleteflag = 0
     </select>
 </mapper>

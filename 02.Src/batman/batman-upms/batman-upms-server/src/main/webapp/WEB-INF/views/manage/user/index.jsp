@@ -168,7 +168,7 @@
 </style>
 
 <script>
-$(document).ready(
+/* $(document).ready(
 		function() {
 			$.ajax({
 				type : "GET",
@@ -262,5 +262,5 @@ $(document).ready(
 
             }
         });
-    }
+    } */
 </script>

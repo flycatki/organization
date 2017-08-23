@@ -7,10 +7,10 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(result) {
 			var data = [
-		       { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "svg" },
-		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
-		       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
-		       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" },
+		       { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "organization" },
+		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" ,"type" : "organization" ,'state':{'opened': 'true'} },
+		       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" ,"type" : "work" },
+		       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" ,"type" : "work" },
 		    ];
 			json = data;
 			$('#jstree1').jstree({
@@ -22,11 +22,11 @@ $(document).ready(function() {
 				},
 				'plugins': ['types', 'dnd', 'contextmenu'],
 				'types': {
-					'default': {
-						'icon': 'fa fa-folder'
+					'organization': {
+						'icon': 'fa fa-sitemap'
 					},
-					'html': {
-						'icon': 'fa fa-file-code-o'
+					'work': {
+						'icon': 'fa fa-user-circle-o'
 					},
 					'svg': {
 						'icon': 'fa fa-file-picture-o'
@@ -188,7 +188,7 @@ function refreshTree(){
 	var node = tree.jstree("get_node","ajson2");
 
 	tree.jstree(true).settings.core.data = json;  
-	tree.jstree(true).refresh_node(node); 
+	tree.jstree(true).refresh(node.id); 
 	
 }	
 		

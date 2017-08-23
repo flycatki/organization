@@ -9,6 +9,8 @@ import com.batman.upms.common.constant.UpmsResult;
 import com.batman.upms.common.constant.UpmsResultConstant;
 import com.batman.upms.dao.model.UpmsOrganization;
 import com.batman.upms.dao.model.UpmsOrganizationExample;
+import com.batman.upms.dao.model.UpmsOrganizationExtForTree;
+import com.batman.upms.rpc.api.UpmsOrganizationExtService;
 import com.batman.upms.rpc.api.UpmsOrganizationService;
 import io.swagger.annotations.ApiOperation;
 
@@ -28,6 +30,9 @@ public class UpmsOrganizationRestController extends BaseController {
 
     @Autowired
     private UpmsOrganizationService upmsOrganizationService;
+    
+    @Autowired
+    private UpmsOrganizationExtService upmsOrganizationExtService;
 
     @ApiOperation(value = "新增组织")
     @ResponseBody
@@ -64,6 +69,10 @@ public class UpmsOrganizationRestController extends BaseController {
 		criteria.andDeleteflagEqualTo(0);
 
 		List<UpmsOrganization> organizations = upmsOrganizationService.selectByExample(example);
+		
+		UpmsOrganization upmsOrganization = new UpmsOrganization();
+		
+		List<UpmsOrganizationExtForTree> organzationTree = upmsOrganizationExtService.selectOrganizationInfoForTree(upmsOrganization);
 
 		return new UpmsResult(UpmsResultConstant.SUCCESS, organizations);
 	}
