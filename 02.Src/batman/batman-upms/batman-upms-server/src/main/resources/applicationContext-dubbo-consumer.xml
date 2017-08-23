@@ -17,6 +17,15 @@
     <!-- 组织结构服务 -->
     <dubbo:reference id="upmsOrganizationService" interface="com.batman.upms.rpc.api.UpmsOrganizationService" mock="true"/>
 
+    <!-- 组织结构扩展服务 -->
+    <dubbo:reference id="upmsOrganizationExtService" interface="com.batman.upms.rpc.api.UpmsOrganizationExtService" mock="true"/>
+
+    <!-- 角色服务 -->
+    <dubbo:reference id="upmsRoleService" interface="com.batman.upms.rpc.api.UpmsRoleService" mock="true"/>
+
+    <!-- 用户服务 -->
+    <dubbo:reference id="upmsUserService" interface="com.batman.upms.rpc.api.UpmsUserService" mock="true"/>
+
     <!-- 接口服务 -->
     <dubbo:reference id="upmsApiService" interface="com.batman.upms.rpc.api.UpmsApiService" mock="true"/>
 

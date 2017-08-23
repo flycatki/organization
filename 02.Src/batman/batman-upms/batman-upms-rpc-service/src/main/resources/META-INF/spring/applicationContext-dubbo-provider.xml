@@ -13,9 +13,17 @@
 
     <dubbo:protocol name="dubbo" port="20881"/>
 
+    <!-- 角色 -->
+    <bean id="upmsRoleService" class="com.batman.upms.rpc.service.impl.UpmsRoleServiceImpl"/>
+    <dubbo:service interface="com.batman.upms.rpc.api.UpmsRoleService" ref="upmsRoleService" timeout="10000"/>
+
     <!-- 组织机构 -->
     <bean id="upmsOrganizationService" class="com.batman.upms.rpc.service.impl.UpmsOrganizationServiceImpl"/>
     <dubbo:service interface="com.batman.upms.rpc.api.UpmsOrganizationService" ref="upmsOrganizationService" timeout="10000"/>
+
+    <!-- 组织机构扩展 -->
+    <bean id="upmsOrganizationExtService" class="com.batman.upms.rpc.service.impl.UpmsOrganizationExtServiceImpl"/>
+    <dubbo:service interface="com.batman.upms.rpc.api.UpmsOrganizationExtService" ref="upmsOrganizationExtService" timeout="10000"/>
 
     <!-- 用户 -->
     <bean id="upmsUserService" class="com.batman.upms.rpc.service.impl.UpmsUserServiceImpl"/>
