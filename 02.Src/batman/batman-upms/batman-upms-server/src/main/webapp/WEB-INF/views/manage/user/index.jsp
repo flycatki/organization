@@ -6,6 +6,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ include file="/WEB-INF/views/include/javascriptLib.jsp" %>
 <c:set var="basePath" value="${pageContext.request.contextPath}"/>
+<input type="hidden" id=basepath value="${basePath}">
 <div class="row wrapper border-bottom white-bg page-heading">
 	<div class="col-lg-10">
 		<h2>用户管理</h2>
@@ -25,9 +26,9 @@
                 </div>
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" class="form-control" placeholder="搜索" />
-                        </div>
+                        <div class="col-lg-12 right">
+							<div class="input-group m-b"><input type="text" class="form-control" placeholder="请输入名字/编码查询"> <span class="input-group-addon"><i class="fa fa-search"></i></span></div>
+						</div>
                     </div>
                     <div id="jstree1">
                         <ul>
@@ -67,7 +68,7 @@
             </div>
         </div>
         <div class="col-lg-9">
-            <div class="ibox">
+            <div id="ibox1" class="ibox">
                 <div class="ibox-title">
                     <span>成员列表</span>
                     <span class="users-list-pinyin">
@@ -119,6 +120,68 @@
 					</div>
                 </div>
             </div>
+            <div id="ibox2" class="ibox" style="display:none">
+				<div class="ibox-title">添加用户</div>
+				<div class="ibox-content">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">人员登录名</label>
+							<div class="col-sm-10">
+								<input id="userLoginName" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">人员姓名</label>
+							<div class="col-sm-10">
+								<input id="userName" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">用户登录密码</label>
+							<div class="col-sm-10">
+								<input id="userPassword" type="password" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">用户登录密码确认</label>
+							<div class="col-sm-10">
+								<input id="userPasswordConfirm" type="password" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">人员状态</label>
+							<div class="col-sm-10">
+								<div class="radio radio-info radio-inline">
+									<input type="radio" id="inlineRadio1" value="option1"
+										name="radioInline" checked=""> <label
+										for="inlineRadio1"> 正常 </label>
+								</div>
+								<div class="radio radio-info radio-inline">
+									<input type="radio" id="inlineRadio2" value="option2"
+										name="radioInline"> <label for="inlineRadio2">
+										锁定 </label>
+								</div>
+								<div class="radio radio-info radio-inline">
+									<input type="radio" id="inlineRadio3" value="option3"
+										name="radioInline"> <label for="inlineRadio3">
+										废止 </label>
+								</div>
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<div class="col-sm-2 col-sm-offset-2">
+								<button class="btn btn-white" type="button">
+									<i class="fa fa-undo"></i> 取消
+								</button>
+								<button id="add" class="btn btn-primary" type="button">
+									<i class="fa fa-plus"></i> 添加
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
     </div>
 </div>
@@ -167,100 +230,4 @@
     
 </style>
 
-<script>
-/* $(document).ready(
-		function() {
-			$.ajax({
-				type : "GET",
-				url : "${basePath}/manage/user/init",
-				dataType : "json",
-				async : false,
-				success : function(result) {
-					var arrays = eval(result);
-					var jsonstr = "[]";
-					var jsonarray = eval('(' + jsonstr + ')');
-					for (var i = 0; i < arrays.length; i++) {
-						var arr = {
-							"id" : arrays[i].uuid,
-							"parent" : arrays[i].parentUuid == "0" ? "#"
-									: arrays[i].parentUuid,
-							"text" : arrays[i].name
-						}
-						jsonarray.push(arr);
-					}
-					$('#jstree1').jstree({
-						"core" : {
-							'check_callback' : true,
-							"data" : jsonarray
-						},
-						'plugins' : [ 'contextmenu','types', 'dnd' ],
-						 'contextmenu':{  
-						        'items':{  
-						            'create':null,  
-						            'rename':null,  
-						            'remove':null,  
-						            'ccp':null,  
-						            '新建用户':{  
-						                'label':'新建用户',  
-						                'action':function(data){  
-						                    
-						                }  
-						            },  
-						            '删除用户':{  
-						                'label':'删除用户',  
-						                'action':function(data){
-						                	
-						                }  
-						            },  
-						            '编辑用户':{  
-						                'label':'编辑用户',  
-						                'action':function(data){
-						                	
-						                } 
-						            }
-						        }
-						   },
-						'types' : {
-							'default' : {
-								'icon' : 'fa fa-folder'
-							},
-							'html' : {
-								'icon' : 'fa fa-file-code-o'
-							},
-							'svg' : {
-								'icon' : 'fa fa-file-picture-o'
-							},
-							'css' : {
-								'icon' : 'fa fa-file-code-o'
-							},
-							'img' : {
-								'icon' : 'fa fa-file-image-o'
-							},
-							'js' : {
-								'icon' : 'fa fa-file-text-o'
-							}
-						}
-					});
-				}
-			});
-		});
-
-    function createSubmit() {
-        $.ajax({
-            type: 'post',
-            url: '${basePath}/manage/user/rest/create',
-            data: {
-                organizationName: "",
-            },
-            beforeSend: function() {
-                // todo check
-            },
-            success: function(result) {
-
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-
-            }
-        });
-    } */
-</script>
+<script src="${basePath}/resources/js/user.js"></script>
