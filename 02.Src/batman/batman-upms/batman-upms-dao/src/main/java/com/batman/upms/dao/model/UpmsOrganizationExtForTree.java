@@ -1,7 +1,6 @@
 package com.batman.upms.dao.model;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /*
  * 方便组织机构查询后直接json化传输至前端
@@ -27,16 +26,16 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	private String type;
 	
 	/*tree中节点状态*/
-	private Map<String, String> state;
+    private UpmsOrganizationExtForTree state;
 	
 	/*tree中节点打开状态*/
-	private String opened;
+	private boolean opened;
 	
 	/*tree中节点可用状态*/
-	private String disabled;
+	private boolean disabled;
 	
 	/*tree中节点选中状态*/
-	private String selected;
+	private boolean selected;
 	
 	/*tree中节点行状态添加用*/
 	private String li_attr;
@@ -58,6 +57,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
      * 逻辑删除状态： 0 正常 ， 1 删除 。 
      */
     private Integer deleteflag;
+
 
 	/**
 	 * idを取得します。
@@ -143,7 +143,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * stateを取得します。
 	 * @return state
 	 */
-	public Map<String,String> getState() {
+	public UpmsOrganizationExtForTree getState() {
 	    return state;
 	}
 
@@ -151,7 +151,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * stateを設定します。
 	 * @param state state
 	 */
-	public void setState(Map<String,String> state) {
+	public void setState(UpmsOrganizationExtForTree state) {
 	    this.state = state;
 	}
 
@@ -159,7 +159,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * openedを取得します。
 	 * @return opened
 	 */
-	public String getOpened() {
+	public boolean getOpened() {
 	    return opened;
 	}
 
@@ -167,7 +167,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * openedを設定します。
 	 * @param opened opened
 	 */
-	public void setOpened(String opened) {
+	public void setOpened(boolean opened) {
 	    this.opened = opened;
 	}
 
@@ -175,7 +175,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * disabledを取得します。
 	 * @return disabled
 	 */
-	public String getDisabled() {
+	public boolean getDisabled() {
 	    return disabled;
 	}
 
@@ -183,7 +183,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * disabledを設定します。
 	 * @param disabled disabled
 	 */
-	public void setDisabled(String disabled) {
+	public void setDisabled(boolean disabled) {
 	    this.disabled = disabled;
 	}
 
@@ -191,7 +191,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * selectedを取得します。
 	 * @return selected
 	 */
-	public String getSelected() {
+	public boolean getSelected() {
 	    return selected;
 	}
 
@@ -199,7 +199,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * selectedを設定します。
 	 * @param selected selected
 	 */
-	public void setSelected(String selected) {
+	public void setSelected(boolean selected) {
 	    this.selected = selected;
 	}
 
