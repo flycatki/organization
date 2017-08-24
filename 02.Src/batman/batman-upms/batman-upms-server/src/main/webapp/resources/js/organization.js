@@ -1,4 +1,5 @@
 var basepath = $("#basepath").val();
+var treeColor = [];
 var json;
 $(document).ready(function() {
 	$.ajax({
@@ -8,26 +9,37 @@ $(document).ready(function() {
 		success: function(result) {
 			var data = [
 		       { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "organization" },
-		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" ,"type" : "organization" ,'state':{'opened': 'true'} },
+		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" ,"type" : "organization" ,'state':{'opened': true, 'disabled':false } },
 		       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" ,"type" : "work" },
 		       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" ,"type" : "work" },
+		       { "id" : "ajson6", "parent" : "ajson3", "text" : "Child 1-1" ,"type" : "work" },
 		    ];
 			json = data;
+			//获取应变色列的id
+			for(var i = 0;i<result.data.length;i++){
+				if(result.data[i].type == 1){
+					treeColor.push(result.data[i].id);
+				}
+			}
 			$('#jstree1').jstree({
 				"core": {
 					//激活删除节点功能
 					'check_callback': true,
 					//用于生成tree的数据
 					"data": result.data
+						//json
 				},
 				'plugins': ['types', 'dnd', 'contextmenu'],
 				'types': {
+					//部门
 					'1': {
-						'icon': 'fa fa-sitemap'
+						'icon': 'fa fa-sitemap',
 					},
+					//岗位
 					'2': {
 						'icon': 'fa fa-user-circle-o'
 					},
+					//组织机构
 					'0': {
 						'icon': 'fa fa-file-picture-o'
 					},
@@ -142,7 +154,11 @@ $(document).ready(function() {
 						}
 					}
 				}
-			});
+			}).bind("loaded.jstree", function () {
+				for(var i = 0;i<treeColor.length;i++){
+					$('#' + treeColor[i] + ' a').addClass('text-navy');
+				}
+            });
 		}
 	});
 
