@@ -28,10 +28,10 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	/*tree中节点状态*/
     private UpmsOrganizationExtForTree state;
 	
-	/*tree中节点打开状态*/
+	/*tree中节点打开状态,根据parentUuid状态判断,为null,则为开*/
 	private boolean opened;
 	
-	/*tree中节点可用状态*/
+	/*tree中节点可用状态,根据isenable状态判断,0 不可用 , 1 可用 */
 	private boolean disabled;
 	
 	/*tree中节点选中状态*/
@@ -60,7 +60,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 
 
 	/**
-	 * idを取得します。
+	 * id属性取得。
 	 * @return id
 	 */
 	public String getId() {
@@ -68,7 +68,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * idを設定します。
+	 * id属性设定。
 	 * @param id id
 	 */
 	public void setId(String id) {
@@ -76,7 +76,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * parentを取得します。
+	 * parent属性取得。
 	 * @return parent
 	 */
 	public String getParent() {
@@ -84,7 +84,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * parentを設定します。
+	 * parent属性设定。
 	 * @param parent parent
 	 */
 	public void setParent(String parent) {
@@ -92,7 +92,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * organizationCodeを取得します。
+	 * organizationCode属性取得。
 	 * @return organizationCode
 	 */
 	public String getOrganizationCode() {
@@ -100,7 +100,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * organizationCodeを設定します。
+	 * organizationCode属性设定。
 	 * @param organizationCode organizationCode
 	 */
 	public void setOrganizationCode(String organizationCode) {
@@ -108,7 +108,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * textを取得します。
+	 * text属性取得。
 	 * @return text
 	 */
 	public String getText() {
@@ -116,7 +116,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * textを設定します。
+	 * text属性设定。
 	 * @param text text
 	 */
 	public void setText(String text) {
@@ -124,7 +124,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * typeを取得します。
+	 * type属性取得。
 	 * @return type
 	 */
 	public String getType() {
@@ -132,7 +132,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * typeを設定します。
+	 * type属性设定。
 	 * @param type type
 	 */
 	public void setType(String type) {
@@ -140,7 +140,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * stateを取得します。
+	 * state属性取得。
 	 * @return state
 	 */
 	public UpmsOrganizationExtForTree getState() {
@@ -148,7 +148,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * stateを設定します。
+	 * state属性设定。
 	 * @param state state
 	 */
 	public void setState(UpmsOrganizationExtForTree state) {
@@ -156,7 +156,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * openedを取得します。
+	 * opened属性取得。
 	 * @return opened
 	 */
 	public boolean getOpened() {
@@ -164,7 +164,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * openedを設定します。
+	 * opened属性设定。
 	 * @param opened opened
 	 */
 	public void setOpened(boolean opened) {
@@ -172,7 +172,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * disabledを取得します。
+	 * disabled属性取得。
 	 * @return disabled
 	 */
 	public boolean getDisabled() {
@@ -180,7 +180,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * disabledを設定します。
+	 * disabled属性设定。
 	 * @param disabled disabled
 	 */
 	public void setDisabled(boolean disabled) {
@@ -188,7 +188,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * selectedを取得します。
+	 * selected属性取得。
 	 * @return selected
 	 */
 	public boolean getSelected() {
@@ -196,7 +196,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * selectedを設定します。
+	 * selected属性设定。
 	 * @param selected selected
 	 */
 	public void setSelected(boolean selected) {
@@ -204,7 +204,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * li_attrを取得します。
+	 * li_attr属性取得。
 	 * @return li_attr
 	 */
 	public String getLi_attr() {
@@ -212,7 +212,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * li_attrを設定します。
+	 * li_attr属性设定。
 	 * @param li_attr li_attr
 	 */
 	public void setLi_attr(String li_attr) {
@@ -220,7 +220,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * a_attrを取得します。
+	 * a_attr属性取得。
 	 * @return a_attr
 	 */
 	public String getA_attr() {
@@ -228,7 +228,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * a_attrを設定します。
+	 * a_attr属性设定。
 	 * @param a_attr a_attr
 	 */
 	public void setA_attr(String a_attr) {
@@ -236,7 +236,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 组织机构是否可见flag ： 0 不可见 ， 1 可见 ；を取得します。
+	 * 组织机构是否可见flag 取得。 ： 0 不可见 ， 1 可见 ；
 	 * @return 组织机构是否可见flag ： 0 不可见 ， 1 可见 ；
 	 */
 	public Integer getIsvisible() {
@@ -244,7 +244,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 组织机构是否可见flag ： 0 不可见 ， 1 可见 ；を設定します。
+	 * 组织机构是否可见flag 设定。 ： 0 不可见 ， 1 可见 ；
 	 * @param isvisible 组织机构是否可见flag ： 0 不可见 ， 1 可见 ；
 	 */
 	public void setIsvisible(Integer isvisible) {
@@ -252,7 +252,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 组织机构描述を取得します。
+	 * 组织机构描述属性取得。
 	 * @return 组织机构描述
 	 */
 	public String getDescription() {
@@ -260,7 +260,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 组织机构描述を設定します。
+	 * 组织机构描述属性设定。
 	 * @param description 组织机构描述
 	 */
 	public void setDescription(String description) {
@@ -268,7 +268,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 逻辑删除状态： 0 正常 ， 1 删除 。を取得します。
+	 * 逻辑删除状态 属性取得。： 0 正常 ， 1 删除 。
 	 * @return 逻辑删除状态： 0 正常 ， 1 删除 。
 	 */
 	public Integer getDeleteflag() {
@@ -276,7 +276,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	}
 
 	/**
-	 * 逻辑删除状态： 0 正常 ， 1 删除 。を設定します。
+	 * 逻辑删除状态 属性设定。： 0 正常 ， 1 删除 。
 	 * @param deleteflag 逻辑删除状态： 0 正常 ， 1 删除 。
 	 */
 	public void setDeleteflag(Integer deleteflag) {

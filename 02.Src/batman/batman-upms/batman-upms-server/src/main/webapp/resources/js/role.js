@@ -1,5 +1,4 @@
 var basepath = $("#basepath").val();
-var treeColor = [];
 var json;
 $(document).ready(function() {
 	$.ajax({
@@ -8,40 +7,30 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(result) {
 			var data = [
-		       { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "organization" },
-		       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" ,"type" : "organization" ,'state':{'opened': true, 'disabled':false } },
-		       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" ,"type" : "work" },
-		       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" ,"type" : "work" },
-		       { "id" : "ajson6", "parent" : "ajson3", "text" : "Child 1-1" ,"type" : "work" },
-		    ];
+						{ "id" : "ajson1", "parent" : "#", "text" : "Simple root node" , "type" : "organization" },
+						{ "id" : "ajson2", "parent" : "#", "text" : "Root node 2" ,"type" : "organization" ,'state':{'opened': 'true'} },
+						{ "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" ,"type" : "work" },
+						{ "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" ,"type" : "work" },
+			];
+			
 			json = data;
-			//获取应变色列的id
-			for(var i = 0;i<result.data.length;i++){
-				if(result.data[i].type == 1){
-					treeColor.push(result.data[i].id);
-				}
-			}
 			$('#jstree1').jstree({
 				"core": {
 					//激活删除节点功能
 					'check_callback': true,
 					//用于生成tree的数据
-					"data": result.data
-						//json
+					"data": data
 				},
 				'plugins': ['types', 'dnd', 'contextmenu'],
 				'types': {
-					//部门
-					'1': {
-						'icon': 'fa fa-sitemap',
+					'default': {
+						'icon': 'fa fa-folder'
 					},
-					//岗位
-					'2': {
-						'icon': 'fa fa-user-circle-o'
+					'html': {
+						'icon': 'fa fa-file-code-o'
 					},
-					//组织机构
-					'0': {
-						'icon': 'fa fa-sitemap'
+					'svg': {
+						'icon': 'fa fa-file-picture-o'
 					},
 					'css': {
 						'icon': 'fa fa-file-code-o'
@@ -65,16 +54,16 @@ $(document).ready(function() {
 							'separator_after': true,
 							//false表示 create 这一项可以使用; true表示不能使用
 							'_disabled': false,
-							'label': '添加岗位',
+							'label': '添加角色',
 							'icon': 'fa fa-plus',
 							//点击Create这一项触发该方法,这理还是蛮有用的
 							'action': function(data) {
-								//增加组织机构div显示
+								//增加角色div显示
 								$("#ibox1").css("display", "");
 								//提示div隐藏
 								$("#ibox2").css("display", "none");
 								//焦点移动至输入名称项
-								$("#organizationName").focus();
+								$("#roleName").focus();
 								//获得当前节点,可以拿到当前节点所有属性
 								var inst = $.jstree.reference(data.reference),
 									obj = inst.get_node(data.reference);
@@ -88,33 +77,6 @@ $(document).ready(function() {
 
 							}
 						},
-                        'createBm': {
-                            //Create这一项在分割线之前
-                            'separator_before': false,
-                            //Create这一项在分割线之后
-                            'separator_after': true,
-                            //false表示 create 这一项可以使用; true表示不能使用
-                            '_disabled': false,
-                            'label': '添加部门',
-                            //点击Create这一项触发该方法,这理还是蛮有用的
-                            'action': function(data) {
-                                //增加组织机构div显示
-                                $("#ibox1").css("display", "");
-                                //提示div隐藏
-                                $("#ibox2").css("display", "none");
-                                //焦点移动至输入名称项
-                                $("#organizationName").focus();
-                                //获得当前节点,可以拿到当前节点所有属性
-                                var inst = $.jstree.reference(data.reference),
-                                    obj = inst.get_node(data.reference);
-                                //新加节点,以下三行代码注释掉就不会添加节点
-                                /* inst.create_node(obj, {},"last",function(new_node) {
-                                    //新加节点后触发 重命名方法,即 创建节点完成后可以立即重命名节点
-                                    setTimeout(function() {inst.edit(new_node);},0);
-                                }); */
-
-                            }
-                        },
 						'rename': {
 							//rename这一项在分割线之前
 							'separator_before': false,
@@ -154,36 +116,18 @@ $(document).ready(function() {
 						}
 					}
 				}
-			}).bind("loaded.jstree", function () {
-				for(var i = 0;i<treeColor.length;i++){
-					$('#' + treeColor[i] + ' a:first').attr('style','color:#1ab394');
-				}
-            }).bind("click.jstree", function () {
-                for(var i = 0;i<treeColor.length;i++){
-					$('#' + treeColor[i] + ' a:first').attr('style','color:#1ab394');
-				}
-            });
+			});
 		}
 	});
-
-	//按钮增加节点用
-	/* 				$("#bumen").click(function(){
-						 .bind("loaded.jstree", function () {
-						 jQuery("#jstree1").jstree("open_all");
-						 }).bind("create_node.jstree",function(event,data){
-						 createCategory(event,data);
-						 })
-						 $('#jstree1').jstree("create");
-						 }); */
-
+	
 });
 
 function createSubmit() {
 	$.ajax({
 		type: 'post',
-		url: basepath + '/manage/organization/rest/create',
+		url: basepath + '/manage/role/rest/create',
 		data: {
-			organizationName: $("#organizationName").val(),
+			roleName: $("#roleName").val(),
 			parentUuid : $("#parentUuid").val()
 		},
 		beforeSend: function() {
@@ -199,7 +143,7 @@ function createSubmit() {
 	});
 }
 
-function refreshTree(){
+function refreshTree() {
 	var tree = $('#jstree1');  
 	tree.jstree({'core':{data:null}});  
 
@@ -210,10 +154,7 @@ function refreshTree(){
 	tree.jstree(true).settings.core.data = json;  
 	tree.jstree(true).refresh(node.id); 
 	
-}	
-		
- 
-
+}
 
 $("#add").click(function() {
 	createSubmit();
