@@ -20,10 +20,12 @@
         <result column="parent" jdbcType="VARCHAR" property="parent" />
         <result column="type" jdbcType="TINYINT" property="type" />
         <result column="description" jdbcType="VARCHAR" property="description" />
-        <result column="isvisible" jdbcType="VARCHAR" property="isvisible" />
-        <result column="disabled" jdbcType="VARCHAR" property="disabled" />
+        <result column="isvisible" jdbcType="VARCHAR" property="isvisible" />        
         <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
-        <result column="opened" jdbcType="VARCHAR" property="opened" /> 
+        <collection property="state" ofType="com.batman.upms.dao.model.UpmsOrganizationExtForTree">
+        	<result column="opened" jdbcType="VARCHAR" property="opened" />
+        	<result column="disabled" jdbcType="VARCHAR" property="disabled" />
+        </collection>        
     </resultMap>
 
     <select id="selectUpmsWorkByUserid" resultMap="ResultMapForTree">

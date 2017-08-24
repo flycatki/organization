@@ -1,7 +1,6 @@
 package com.batman.upms.dao.model;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /*
  * 方便组织机构查询后直接json化传输至前端
@@ -27,7 +26,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	private String type;
 	
 	/*tree中节点状态*/
-	private Map<String, String> state;
+    private UpmsOrganizationExtForTree state;
 	
 	/*tree中节点打开状态*/
 	private String opened;
@@ -58,6 +57,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
      * 逻辑删除状态： 0 正常 ， 1 删除 。 
      */
     private Integer deleteflag;
+
 
 	/**
 	 * idを取得します。
@@ -143,7 +143,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * stateを取得します。
 	 * @return state
 	 */
-	public Map<String,String> getState() {
+	public UpmsOrganizationExtForTree getState() {
 	    return state;
 	}
 
@@ -151,7 +151,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * stateを設定します。
 	 * @param state state
 	 */
-	public void setState(Map<String,String> state) {
+	public void setState(UpmsOrganizationExtForTree state) {
 	    this.state = state;
 	}
 
