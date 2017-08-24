@@ -23,6 +23,9 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	/*tree中节点的名字,表中name*/
 	private String text;
 	
+	/*tree中节点的type(用于设置icon等属性),表中organization_type*/
+	private String type;
+	
 	/*tree中节点状态*/
 	private Map<String, String> state;
 	
@@ -118,6 +121,22 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 */
 	public void setText(String text) {
 	    this.text = text;
+	}
+
+	/**
+	 * typeを取得します。
+	 * @return type
+	 */
+	public String getType() {
+	    return type;
+	}
+
+	/**
+	 * typeを設定します。
+	 * @param type type
+	 */
+	public void setType(String type) {
+	    this.type = type;
 	}
 
 	/**

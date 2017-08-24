@@ -5,7 +5,6 @@ import java.util.List;
 import com.batman.common.base.BaseService;
 import com.batman.upms.dao.model.UpmsOrganization;
 import com.batman.upms.dao.model.UpmsOrganizationExample;
-import com.batman.upms.dao.model.UpmsOrganizationExtForTree;
 
 /**
 * UpmsOrganizationService接口
