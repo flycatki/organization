@@ -62,13 +62,6 @@ public class UpmsOrganizationRestController extends BaseController {
 	@RequestMapping(value = "/rest/init", method = RequestMethod.GET)
 	@ResponseBody
 	public Object init() {
-		UpmsOrganizationExample example = new UpmsOrganizationExample();
-
-		UpmsOrganizationExample.Criteria criteria = example.createCriteria();
-
-		criteria.andDeleteflagEqualTo(0);
-
-		List<UpmsOrganization> organizations = upmsOrganizationService.selectByExample(example);
 		
 		UpmsOrganization upmsOrganization = new UpmsOrganization();
 		

@@ -41,7 +41,7 @@ $(document).ready(function() {
 					},
 					//组织机构
 					'0': {
-						'icon': 'fa fa-file-picture-o'
+						'icon': 'fa fa-sitemap'
 					},
 					'css': {
 						'icon': 'fa fa-file-code-o'
@@ -156,7 +156,11 @@ $(document).ready(function() {
 				}
 			}).bind("loaded.jstree", function () {
 				for(var i = 0;i<treeColor.length;i++){
-					$('#' + treeColor[i] + ' a').addClass('text-navy');
+					$('#' + treeColor[i] + ' a:first').attr('style','color:#1ab394');
+				}
+            }).bind("click.jstree", function () {
+                for(var i = 0;i<treeColor.length;i++){
+					$('#' + treeColor[i] + ' a:first').attr('style','color:#1ab394');
 				}
             });
 		}
