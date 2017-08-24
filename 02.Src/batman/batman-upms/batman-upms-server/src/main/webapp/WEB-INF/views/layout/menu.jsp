@@ -9,22 +9,21 @@
     <li class="nav-header">
         <div class="dropdown profile-element">
             <span>
-                <img alt="image" class="img-circle" src="img/profile_small.jpg"/>
+                <img alt="image" class="img-circle" src="${basePath}/resources/batman-admin-ui/img/profile_small.jpg"/>
             </span>
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <span class="clear">
                     <span class="block m-t-xs">
-                        <strong class="font-bold">David Williams</strong>
+                        <strong class="font-bold">蝙蝠侠</strong>
                     </span>
-                    <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                    <span class="text-muted text-xs block">系统超级管理员 <b class="caret"></b></span>
                 </span>
             </a>
             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
-                <li><a href="mailbox.html">Mailbox</a></li>
+                <li><a href="profile.html">个人设置</a></li>
+                <li><a href="contacts.html">联系人</a></li>
                 <li class="divider"></li>
-                <li><a href="login.html">Logout</a></li>
+                <li><a href="${basePath}/sso/logout">登出</a></li>
             </ul>
         </div>
         <div class="logo-element">
