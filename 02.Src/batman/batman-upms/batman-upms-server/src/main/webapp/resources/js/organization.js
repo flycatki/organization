@@ -18,17 +18,17 @@ $(document).ready(function() {
 					//激活删除节点功能
 					'check_callback': true,
 					//用于生成tree的数据
-					"data": data
+					"data": result.data
 				},
 				'plugins': ['types', 'dnd', 'contextmenu'],
 				'types': {
-					'organization': {
+					'1': {
 						'icon': 'fa fa-sitemap'
 					},
-					'work': {
+					'2': {
 						'icon': 'fa fa-user-circle-o'
 					},
-					'svg': {
+					'0': {
 						'icon': 'fa fa-file-picture-o'
 					},
 					'css': {

@@ -14,16 +14,16 @@
     </resultMap>
     
     <resultMap id="ResultMapForTree" type="com.batman.upms.dao.model.UpmsOrganizationExtForTree">
-        <id column="uuid" jdbcType="VARCHAR" property="id" />
-        <result column="id" jdbcType="VARCHAR" property="organizationCode" />
-        <result column="name" jdbcType="VARCHAR" property="text" />
-        <result column="parent_uuid" jdbcType="VARCHAR" property="parent" />
-        <result column="organization_type" jdbcType="TINYINT" property="type" />
-        <!-- <result column="description" jdbcType="VARCHAR" property="description" />
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="organizationCode" jdbcType="VARCHAR" property="organizationCode" />
+        <result column="text" jdbcType="VARCHAR" property="text" />
+        <result column="parent" jdbcType="VARCHAR" property="parent" />
+        <result column="type" jdbcType="TINYINT" property="type" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
         <result column="isvisible" jdbcType="VARCHAR" property="isvisible" />
-        <result column="isenable" jdbcType="VARCHAR" property="disabled" />
+        <result column="disabled" jdbcType="VARCHAR" property="disabled" />
         <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
-        <result jdbcType="VARCHAR" property="opened" /> -->
+        <result column="opened" jdbcType="VARCHAR" property="opened" /> 
     </resultMap>
 
     <select id="selectUpmsWorkByUserid" resultMap="ResultMapForTree">
@@ -40,10 +40,14 @@
     </select>
     
     
-   	<select id="selectOrganizationInfoForTree" resultMap="BaseResultMap">
+   	<select id="selectOrganizationInfoForTree" resultMap="ResultMapForTree">
 		SELECT 
 	    uuid AS id,
-	    parent_uuid AS parent,
+	    description,
+	    CASE
+        WHEN parent_uuid IS NULL THEN '#'
+        ELSE parent_uuid
+    	END AS parent,
 	    id as organizationCode,
 	    name AS text,
 	    organization_type AS type,
@@ -54,7 +58,9 @@
 	    CASE
 	        WHEN parent_uuid is NULL THEN 'true'
 	        ELSE 'false'
-	    END AS opened
+	    END AS opened,
+	    isvisible,
+	    deleteflag
 		FROM
 	    upms_organization
 	    WHERE deleteflag = 0

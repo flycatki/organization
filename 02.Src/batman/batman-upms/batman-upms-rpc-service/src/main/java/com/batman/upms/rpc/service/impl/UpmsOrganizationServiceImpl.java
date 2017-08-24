@@ -38,7 +38,7 @@ private static Logger _log = LoggerFactory.getLogger(UpmsOrganizationServiceImpl
     }
     
     public List<UpmsOrganizationExtForTree> selectOrganizationInfoForTree(UpmsOrganization upmsOrganization){
-    	return upmsOrganizationExtMapper.selectOrganizationInfoForTree(upmsOrganization);
+    	return upmsOrganizationExtMapper.selectOrganizationInfoForTree();
     }
 
 }

@@ -72,8 +72,8 @@ public class UpmsOrganizationRestController extends BaseController {
 		
 		UpmsOrganization upmsOrganization = new UpmsOrganization();
 		
-		List<UpmsOrganizationExtForTree> organzationTree = upmsOrganizationExtService.selectOrganizationInfoForTree(upmsOrganization);
+		List<UpmsOrganizationExtForTree> organzationTree = upmsOrganizationExtService.selectOrganizationInfoForTree();
 
-		return new UpmsResult(UpmsResultConstant.SUCCESS, organizations);
+		return new UpmsResult(UpmsResultConstant.SUCCESS, organzationTree);
 	}
 }
