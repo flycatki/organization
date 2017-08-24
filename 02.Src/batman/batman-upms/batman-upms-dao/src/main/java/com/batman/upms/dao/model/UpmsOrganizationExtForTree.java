@@ -29,13 +29,13 @@ public class UpmsOrganizationExtForTree implements Serializable {
     private UpmsOrganizationExtForTree state;
 	
 	/*tree中节点打开状态*/
-	private String opened;
+	private boolean opened;
 	
 	/*tree中节点可用状态*/
-	private String disabled;
+	private boolean disabled;
 	
 	/*tree中节点选中状态*/
-	private String selected;
+	private boolean selected;
 	
 	/*tree中节点行状态添加用*/
 	private String li_attr;
@@ -159,7 +159,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * openedを取得します。
 	 * @return opened
 	 */
-	public String getOpened() {
+	public boolean getOpened() {
 	    return opened;
 	}
 
@@ -167,7 +167,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * openedを設定します。
 	 * @param opened opened
 	 */
-	public void setOpened(String opened) {
+	public void setOpened(boolean opened) {
 	    this.opened = opened;
 	}
 
@@ -175,7 +175,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * disabledを取得します。
 	 * @return disabled
 	 */
-	public String getDisabled() {
+	public boolean getDisabled() {
 	    return disabled;
 	}
 
@@ -183,7 +183,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * disabledを設定します。
 	 * @param disabled disabled
 	 */
-	public void setDisabled(String disabled) {
+	public void setDisabled(boolean disabled) {
 	    this.disabled = disabled;
 	}
 
@@ -191,7 +191,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * selectedを取得します。
 	 * @return selected
 	 */
-	public String getSelected() {
+	public boolean getSelected() {
 	    return selected;
 	}
 
@@ -199,7 +199,7 @@ public class UpmsOrganizationExtForTree implements Serializable {
 	 * selectedを設定します。
 	 * @param selected selected
 	 */
-	public void setSelected(String selected) {
+	public void setSelected(boolean selected) {
 	    this.selected = selected;
 	}
 

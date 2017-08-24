@@ -23,8 +23,8 @@
         <result column="isvisible" jdbcType="VARCHAR" property="isvisible" />        
         <result column="deleteflag" jdbcType="INTEGER" property="deleteflag" />
         <collection property="state" ofType="com.batman.upms.dao.model.UpmsOrganizationExtForTree">
-        	<result column="opened" jdbcType="VARCHAR" property="opened" />
-        	<result column="disabled" jdbcType="VARCHAR" property="disabled" />
+        	<result column="opened" jdbcType="BOOLEAN" property="opened" />
+        	<result column="disabled" jdbcType="BOOLEAN" property="disabled" />
         </collection>        
     </resultMap>
 
